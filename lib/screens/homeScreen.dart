@@ -87,22 +87,25 @@ class _homeScreenState extends State<homeScreen> {
               SizedBox(
                 height: 130,
               ),
-              SizedBox(
-                width: 170,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Commencez",
-                    style: GoogleFonts.raleway(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide.none,
-                        borderRadius: BorderRadius.circular(20)),
-                    backgroundColor: primaryColor,
-                    //Color.fromARGB(255, 230, 144, 118),
+              FadeIn(
+                delay: Duration(seconds: 2),
+                child: SizedBox(
+                  width: 170,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Commencez",
+                      style: GoogleFonts.raleway(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide.none,
+                          borderRadius: BorderRadius.circular(20)),
+                      backgroundColor: primaryColor,
+                      //Color.fromARGB(255, 230, 144, 118),
+                    ),
                   ),
                 ),
               )
