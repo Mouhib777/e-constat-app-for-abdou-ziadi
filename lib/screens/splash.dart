@@ -16,7 +16,8 @@ class _splashScreenState extends State<splashScreen> {
     return Container(
       color: primaryColor,
       child: Column(
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [Image.asset("assets/images/logo.png")],
       ),
     );
   }
