@@ -1,4 +1,5 @@
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/loginRegistre.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -92,7 +93,12 @@ class _homeScreenState extends State<homeScreen> {
                 child: SizedBox(
                   width: 170,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => loginRegistre()));
+                    },
                     child: Text(
                       "Commencez",
                       style: GoogleFonts.raleway(
