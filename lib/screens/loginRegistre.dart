@@ -7,14 +7,9 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 
-class loginRegistre extends StatefulWidget {
+class loginRegistre extends StatelessWidget {
   const loginRegistre({super.key});
 
-  @override
-  State<loginRegistre> createState() => _loginRegistreState();
-}
-
-class _loginRegistreState extends State<loginRegistre> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +29,10 @@ class _loginRegistreState extends State<loginRegistre> {
           title: ZoomIn(
             child: Text(
               'E-Constat',
-              style: GoogleFonts.raleway(),
+              style: GoogleFonts.raleway(
+                  color: thirdColor,
+                  letterSpacing: 4,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           centerTitle: true,
@@ -43,60 +41,62 @@ class _loginRegistreState extends State<loginRegistre> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FadeIn(
-                delay: Duration(seconds: 2),
-                child: SizedBox(
-                  width: 170,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => registreScreen()));
-                    },
-                    child: Text(
-                      "S'inscrire",
-                      style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide.none,
-                          borderRadius: BorderRadius.circular(14)),
-                      backgroundColor: primaryColor,
-                    ),
+              // FadeIn(
+              //child:
+              SizedBox(
+                width: 170,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => registreScreen()));
+                  },
+                  child: Text(
+                    "S'inscrire",
+                    style: GoogleFonts.raleway(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: thirdColor),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide.none,
+                        borderRadius: BorderRadius.circular(14)),
+                    backgroundColor: primaryColor,
                   ),
                 ),
               ),
+              // ),
               SizedBox(
                 height: 20,
               ),
-              FadeIn(
-                delay: Duration(seconds: 2),
-                child: SizedBox(
-                  width: 170,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => loginScreen()));
-                    },
-                    child: Text(
-                      "Se connecter",
-                      style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide.none,
-                          borderRadius: BorderRadius.circular(14)),
-                      backgroundColor: primaryColor,
-                    ),
+              // FadeIn(
+              // child:
+              SizedBox(
+                width: 170,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => loginScreen()));
+                  },
+                  child: Text(
+                    "Se connecter",
+                    style: GoogleFonts.raleway(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: thirdColor),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide.none,
+                        borderRadius: BorderRadius.circular(14)),
+                    backgroundColor: primaryColor,
                   ),
                 ),
+                //    ),
               )
             ],
           ),

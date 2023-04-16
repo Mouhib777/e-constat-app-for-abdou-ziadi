@@ -94,15 +94,21 @@ class _homeScreenState extends State<homeScreen> {
                   width: 170,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => loginRegistre()));
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          transitionDuration: Duration.zero,
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  loginRegistre(),
+                        ),
+                      );
                     },
                     child: Text(
                       "Commencez",
                       style: GoogleFonts.raleway(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: thirdColor),
                     ),
                     style: ElevatedButton.styleFrom(
                       elevation: 5,

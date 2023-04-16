@@ -1,3 +1,4 @@
+import 'package:e_constat/screens/loginRegistre.dart';
 import 'package:e_constat/screens/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E-constat By A.ziadi',
       home: splashScreen(),
+      //initialRoute: '/',
+      routes: {"/loginRegistre": (context) => loginRegistre()},
     );
   }
 }
