@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class registreScreen extends StatefulWidget {
-  const registreScreen({super.key});
+class loginScreen extends StatefulWidget {
+  const loginScreen({super.key});
 
   @override
-  State<registreScreen> createState() => _registreScreenState();
+  State<loginScreen> createState() => _loginScreenState();
 }
 
-class _registreScreenState extends State<registreScreen> {
+class _loginScreenState extends State<loginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
