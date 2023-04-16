@@ -15,6 +15,9 @@ class _splashScreenState extends State<splashScreen> {
   Widget build(BuildContext context) {
     return Container(
       color: primaryColor,
+      child: Column(
+        children: [],
+      ),
     );
   }
 }
