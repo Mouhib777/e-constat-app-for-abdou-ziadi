@@ -12,6 +12,12 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage("assets/images/road.jpg"))),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+      ),
+    );
   }
 }
