@@ -14,11 +14,25 @@ class _splashScreenState extends State<splashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: primaryColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [Image.asset("assets/images/logo.png")],
-      ),
-    );
+        color: primaryColor,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 60,
+              ),
+              Image.asset("assets/images/logo.png"),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Zéro Papier",
+                style: TextStyle(color: Colors.blue),
+              )
+            ],
+          ),
+        ));
   }
 }
