@@ -2,6 +2,7 @@ import 'package:e_constat/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({super.key});
@@ -25,11 +26,16 @@ class _splashScreenState extends State<splashScreen> {
               ),
               Image.asset("assets/images/logo.png"),
               SizedBox(
-                height: 30,
+                height: 330,
               ),
               Text(
                 "Zéro Papier",
-                style: TextStyle(color: Colors.blue),
+                style: GoogleFonts.raleway(
+                    wordSpacing: 5,
+                    letterSpacing: 8,
+                    color: secondaryColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600),
               )
             ],
           ),
