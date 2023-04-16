@@ -102,9 +102,8 @@ class _homeScreenState extends State<homeScreen> {
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           side: BorderSide.none,
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(14)),
                       backgroundColor: primaryColor,
-                      //Color.fromARGB(255, 230, 144, 118),
                     ),
                   ),
                 ),
