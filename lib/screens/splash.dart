@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -12,6 +15,22 @@ class splashScreen extends StatefulWidget {
 }
 
 class _splashScreenState extends State<splashScreen> {
+  @override
+  void initState() {
+    Timer(
+        Duration(
+          seconds: 3,
+        ), () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => homeScreen(),
+          ));
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
