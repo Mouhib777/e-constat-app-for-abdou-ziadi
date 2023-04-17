@@ -33,21 +33,15 @@ class _loginScreenState extends State<loginScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.95,
               child: TextField(
-                cursorColor: secondaryColor,
+                //cursorColor: secondaryColor,
                 decoration: InputDecoration(
-                  fillColor: secondaryColor,
-                  iconColor: secondaryColor,
-                  focusColor: secondaryColor,
-                  hoverColor: secondaryColor,
-                  prefixIconColor: secondaryColor,
-                  suffixIconColor: secondaryColor,
                   hintStyle: GoogleFonts.raleway(),
                   labelStyle: GoogleFonts.raleway(),
                   counterStyle: GoogleFonts.raleway(),
                   hintText: 'address@mail.com',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(35),
-                      borderSide: BorderSide(color: secondaryColor)),
+                    borderRadius: BorderRadius.circular(35),
+                  ),
                   labelText: '  addresse e-mail',
                   // counterText:
                   //     '*Please use a verified e-mail',
@@ -80,7 +74,7 @@ class _loginScreenState extends State<loginScreen> {
                 obscureText: true,
                 maxLength: 40,
                 onChanged: (value) {
-                  email = value;
+                  password = value;
                 },
               ),
             ),
