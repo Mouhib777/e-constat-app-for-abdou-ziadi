@@ -1,4 +1,5 @@
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/option.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -99,13 +100,12 @@ class _loginScreenState extends State<loginScreen> {
                       UserCredential user = await FirebaseAuth.instance
                           .signInWithEmailAndPassword(
                               email: email!.trim(), password: password!.trim());
-                      //  CircularProgressIndicator();
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) =>
-                      //             MainScreen(),
-                      //         maintainState: false));
+
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => optionScreen(),
+                          ));
                     } on FirebaseAuthException catch (ex) {
                       if (ex.code == 'user-not-found') {
                         var snackBar = SnackBar(
