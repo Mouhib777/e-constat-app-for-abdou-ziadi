@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -78,6 +80,100 @@ class _registreScreenState extends State<registreScreen> {
                 },
               ),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+                height: 45,
+                width: 180,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      backgroundColor: secondaryColor,
+                    ),
+                    child: Text('Registre Now',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            color: thirdColor,
+                            fontWeight: FontWeight.w600)
+                        //  TextStyle(
+                        //   fontSize: 20,
+                        //   fontWeight: FontWeight.w700,
+                        //   color: Colors.white,
+                        //   //Color.fromARGB(234, 0, 85, 155)
+                        // ),
+                        ),
+
+                    // child: Text(
+                    //   'Registre Now !',
+
+                    //   style: TextStyle(
+                    //       fontSize: 15,
+                    //       fontWeight: FontWeight.bold,
+                    //       color:
+                    //           Color.fromARGB(234, 0, 85, 155)),
+                    // ),
+                    onPressed: () async {
+                      try {
+                        UserCredential user = await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: email!.trim(),
+                                password: password!.trim());
+                        final User? userr = FirebaseAuth.instance.currentUser;
+                        final _uid = userr!.uid;
+
+                        await FirebaseFirestore.instance
+                            .collection('utilisateur')
+                            .doc(_uid)
+                            .set({
+                          "email": email,
+                          "id": _uid,
+                          "password": password,
+                        });
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) =>
+                        //             HomeScreen()));
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'weak-password') {
+                          var snackBar = SnackBar(
+                              backgroundColor: secondaryColor,
+                              content: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'mot de passe faible',
+                                    style: GoogleFonts.raleway(),
+                                  ),
+                                ],
+                              ));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        } else if (e.code == 'email-already-in-use') {
+                          var snackBar = SnackBar(
+                              backgroundColor: secondaryColor,
+                              content: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'cette addresse e-mail est déja utilisé',
+                                    style: GoogleFonts.raleway(),
+                                  ),
+                                ],
+                              ));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        }
+                      } catch (ex) {
+                        print(ex);
+                      }
+
+                      FocusScopeNode currentFocus = FocusScope.of(context);
+                      if (!currentFocus.hasPrimaryFocus) {
+                        currentFocus.unfocus();
+                      }
+                    }))
           ],
         ),
       ),
