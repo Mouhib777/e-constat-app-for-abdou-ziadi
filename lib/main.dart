@@ -1,10 +1,15 @@
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/loginRegistre.dart';
 import 'package:e_constat/screens/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  runApp(MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {

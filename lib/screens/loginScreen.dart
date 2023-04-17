@@ -1,4 +1,5 @@
 import 'package:e_constat/constant/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -78,6 +79,50 @@ class _loginScreenState extends State<loginScreen> {
                 },
               ),
             ),
+            SizedBox(height: 20),
+            SizedBox(
+                height: 45,
+                width: 180,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    backgroundColor: secondaryColor,
+                  ),
+                  child: Text('Se connecter',
+                      style: GoogleFonts.raleway(
+                          fontSize: 20,
+                          color: thirdColor,
+                          fontWeight: FontWeight.w600)),
+                  onPressed: () async {
+                    try {
+                      UserCredential user = await FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: email!.trim(), password: password!.trim());
+                      //  CircularProgressIndicator();
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             MainScreen(),
+                      //         maintainState: false));
+                    } on FirebaseAuthException catch (ex) {
+                      if (ex.code == 'user-not-found') {
+                        var snackBar = SnackBar(
+                            content:
+                                Text('Aucun utilisateur avec ces données'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      } else if (ex.code == 'mot de passe incorrecte') {
+                        var snackBar = SnackBar(content: Text('Loading...'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      } else if (ex.code == 'invalid-email') {
+                        var snackBar = SnackBar(
+                            content: Text('addresse e-mail incorrecte'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
+                    }
+                  },
+                ))
           ],
         ),
       ),
