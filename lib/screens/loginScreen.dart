@@ -12,6 +12,8 @@ class loginScreen extends StatefulWidget {
 }
 
 class _loginScreenState extends State<loginScreen> {
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +25,66 @@ class _loginScreenState extends State<loginScreen> {
           style: GoogleFonts.raleway(letterSpacing: 1, color: thirdColor),
         ),
         centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: TextField(
+                cursorColor: secondaryColor,
+                decoration: InputDecoration(
+                  fillColor: secondaryColor,
+                  iconColor: secondaryColor,
+                  focusColor: secondaryColor,
+                  hoverColor: secondaryColor,
+                  prefixIconColor: secondaryColor,
+                  suffixIconColor: secondaryColor,
+                  hintStyle: GoogleFonts.raleway(),
+                  labelStyle: GoogleFonts.raleway(),
+                  counterStyle: GoogleFonts.raleway(),
+                  hintText: 'address@mail.com',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(35)),
+                  labelText: '  addresse e-mail',
+                  // counterText:
+                  //     '*Please use a verified e-mail',
+                ),
+                autofocus: false,
+                keyboardType: TextInputType.emailAddress,
+                maxLength: 40,
+                onChanged: (value) {
+                  email = value;
+                },
+              ),
+            ),
+            SizedBox(height: 30),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintStyle: GoogleFonts.raleway(),
+                  labelStyle: GoogleFonts.raleway(),
+                  counterStyle: GoogleFonts.raleway(),
+                  hintText: '*******',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(35)),
+                  labelText: '  Mot de passe',
+                  // counterText:
+                  //     '*Please use a verified e-mail',
+                ),
+                autofocus: false,
+                keyboardType: TextInputType.text,
+                obscureText: true,
+                maxLength: 40,
+                onChanged: (value) {
+                  email = value;
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
