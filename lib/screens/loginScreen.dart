@@ -72,7 +72,7 @@ class _loginScreenState extends State<loginScreen> {
                 autofocus: false,
                 keyboardType: TextInputType.text,
                 obscureText: true,
-                maxLength: 40,
+                maxLength: 8,
                 onChanged: (value) {
                   password = value;
                 },
