@@ -46,7 +46,8 @@ class _loginScreenState extends State<loginScreen> {
                   counterStyle: GoogleFonts.raleway(),
                   hintText: 'address@mail.com',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(35)),
+                      borderRadius: BorderRadius.circular(35),
+                      borderSide: BorderSide(color: secondaryColor)),
                   labelText: '  addresse e-mail',
                   // counterText:
                   //     '*Please use a verified e-mail',
