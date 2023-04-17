@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/sos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -26,7 +27,13 @@ class _optionScreenState extends State<optionScreen> {
               child: SizedBox(
                 width: 170,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => sos(),
+                        ));
+                  },
                   child: Text(
                     "Appeler SOS",
                     style: GoogleFonts.raleway(
