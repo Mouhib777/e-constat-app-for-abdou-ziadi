@@ -89,7 +89,7 @@ class _homeScreenState extends State<homeScreen> {
                 height: 130,
               ),
               FadeIn(
-                delay: Duration(seconds: 2),
+                delay: Duration(milliseconds: 1500),
                 child: SizedBox(
                   width: 170,
                   child: ElevatedButton(
