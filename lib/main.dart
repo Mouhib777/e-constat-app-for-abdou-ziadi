@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E-constat By A.ziadi',
       home: splashScreen(),
-      theme: ThemeData(primaryColor: secondaryColor),
+      //theme: ThemeData(primarySwatch: secondaryColor),
       //initialRoute: '/',
       routes: {"/loginRegistre": (context) => loginRegistre()},
     );
