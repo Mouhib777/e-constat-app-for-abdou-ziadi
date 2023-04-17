@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/option.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -96,24 +97,7 @@ class _registreScreenState extends State<registreScreen> {
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
                             color: thirdColor,
-                            fontWeight: FontWeight.w600)
-                        //  TextStyle(
-                        //   fontSize: 20,
-                        //   fontWeight: FontWeight.w700,
-                        //   color: Colors.white,
-                        //   //Color.fromARGB(234, 0, 85, 155)
-                        // ),
-                        ),
-
-                    // child: Text(
-                    //   'Registre Now !',
-
-                    //   style: TextStyle(
-                    //       fontSize: 15,
-                    //       fontWeight: FontWeight.bold,
-                    //       color:
-                    //           Color.fromARGB(234, 0, 85, 155)),
-                    // ),
+                            fontWeight: FontWeight.w600)),
                     onPressed: () async {
                       try {
                         UserCredential user = await FirebaseAuth.instance
@@ -132,11 +116,10 @@ class _registreScreenState extends State<registreScreen> {
                           "password": password,
                         });
 
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) =>
-                        //             HomeScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => optionScreen()));
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'weak-password') {
                           var snackBar = SnackBar(
