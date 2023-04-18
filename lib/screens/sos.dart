@@ -23,11 +23,34 @@ class _sosState extends State<sos> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Image.asset("assets/images/gardenational.png")],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 50,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Row(
+              children: [
+                SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: Image.asset("assets/images/gardenational.png")),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Garde National",
+                  style: GoogleFonts.raleway(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 5),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
