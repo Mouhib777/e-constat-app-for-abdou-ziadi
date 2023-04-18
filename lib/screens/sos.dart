@@ -49,6 +49,9 @@ class _sosState extends State<sos> {
                 )
               ],
             ),
+          ),
+          SizedBox(
+            height: 20,
           )
         ],
       ),
