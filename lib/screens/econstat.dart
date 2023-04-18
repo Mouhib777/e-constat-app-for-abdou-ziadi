@@ -11,6 +11,34 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
+  List<Step> getSteps() => [
+        Step(
+          isActive: currentStep >= 0,
+          title: Text(
+            'Vehicule A',
+            style: GoogleFonts.raleway(),
+          ),
+          content: Container(),
+        ),
+        Step(
+          isActive: currentStep >= 1,
+          title: Text(
+            'Vehicule B',
+            style: GoogleFonts.raleway(),
+          ),
+          content: Container(),
+        ),
+        Step(
+          isActive: currentStep >= 2,
+          title: Text(
+            'Confirmation',
+            style: GoogleFonts.raleway(),
+          ),
+          content: Container(),
+        )
+      ];
+
+  int currentStep = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +52,11 @@ class _EconstatState extends State<Econstat> {
       ),
       body: Stepper(
         type: StepperType.horizontal,
-        steps: [],
+        steps: getSteps(),
+        currentStep: currentStep,
+        onStepContinue: () {
+          setState(() {});
+        },
       ),
     );
   }
