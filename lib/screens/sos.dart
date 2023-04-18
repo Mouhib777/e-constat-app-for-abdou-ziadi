@@ -51,7 +51,7 @@ class _sosState extends State<sos> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 70,
           ),
           InkWell(
             onTap: () {},
@@ -66,6 +66,30 @@ class _sosState extends State<sos> {
                 ),
                 Text(
                   "Protection Civile",
+                  style: GoogleFonts.raleway(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 4),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 70,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Row(
+              children: [
+                SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: Image.asset("assets/images/SAMU.png")),
+                SizedBox(
+                  width: 80,
+                ),
+                Text(
+                  "SAMU",
                   style: GoogleFonts.raleway(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
