@@ -26,7 +26,7 @@ class _sosState extends State<sos> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [Image.asset("assets/images/gardenational.png")],
         ),
       ),
     );
