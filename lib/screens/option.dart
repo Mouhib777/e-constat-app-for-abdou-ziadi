@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/econstat.dart';
 import 'package:e_constat/screens/sos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -60,7 +61,13 @@ class _optionScreenState extends State<optionScreen> {
                 width: 220,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Econstat(),
+                        ));
+                  },
                   child: Text(
                     "Remplir un e-constat",
                     style: GoogleFonts.raleway(
