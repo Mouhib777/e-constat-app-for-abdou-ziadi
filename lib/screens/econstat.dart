@@ -22,7 +22,10 @@ class _EconstatState extends State<Econstat> {
         ),
         centerTitle: true,
       ),
-      //   body: ,
+      body: Stepper(
+        type: StepperType.horizontal,
+        steps: [],
+      ),
     );
   }
 }
