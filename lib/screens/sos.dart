@@ -13,6 +13,9 @@ class sos extends StatefulWidget {
 }
 
 class _sosState extends State<sos> {
+  final protectionCivile = "tel:198";
+  final gardeNational = "tel:197";
+  final samu = "tel:190";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +34,9 @@ class _sosState extends State<sos> {
             height: 70,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await launch(gardeNational);
+            },
             child: Row(
               children: [
                 SizedBox(
@@ -55,7 +60,9 @@ class _sosState extends State<sos> {
             height: 70,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await launch(protectionCivile);
+            },
             child: Row(
               children: [
                 SizedBox(
@@ -79,7 +86,9 @@ class _sosState extends State<sos> {
             height: 70,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await launch(samu);
+            },
             child: Row(
               children: [
                 SizedBox(
