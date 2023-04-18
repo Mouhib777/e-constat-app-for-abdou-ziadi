@@ -45,13 +45,34 @@ class _sosState extends State<sos> {
                   style: GoogleFonts.raleway(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 5),
+                      letterSpacing: 4),
                 )
               ],
             ),
           ),
           SizedBox(
             height: 20,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Row(
+              children: [
+                SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: Image.asset("assets/images/gardenational.png")),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Protection Civile",
+                  style: GoogleFonts.raleway(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 4),
+                )
+              ],
+            ),
           )
         ],
       ),
