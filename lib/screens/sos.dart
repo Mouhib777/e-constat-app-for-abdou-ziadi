@@ -60,7 +60,7 @@ class _sosState extends State<sos> {
                 SizedBox(
                     width: 120,
                     height: 120,
-                    child: Image.asset("assets/images/gardenational.png")),
+                    child: Image.asset("assets/images/protectioncivile.png")),
                 SizedBox(
                   width: 10,
                 ),
