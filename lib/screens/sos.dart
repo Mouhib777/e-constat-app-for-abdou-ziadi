@@ -27,7 +27,7 @@ class _sosState extends State<sos> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            height: 50,
+            height: 70,
           ),
           InkWell(
             onTap: () {},
