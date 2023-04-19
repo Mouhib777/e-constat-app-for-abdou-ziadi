@@ -63,14 +63,13 @@ class _EconstatState extends State<Econstat> {
               currentStep += 1;
             });
           }
-          setState(() {
-            currentStep += 1;
-          });
         },
         onStepCancel: () {
-          setState(() {
-            currentStep -= 1;
-          });
+          currentStep == 0
+              ? null
+              : setState(() {
+                  currentStep -= 1;
+                });
         },
       ),
     );
