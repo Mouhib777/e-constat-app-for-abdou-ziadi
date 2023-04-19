@@ -14,7 +14,7 @@ class mapScreen extends StatefulWidget {
 }
 
 class _mapScreenState extends State<mapScreen> {
-  late LatLng currentLocation1;
+  LatLng? currentLocation1;
   late GoogleMapController _mapController;
   late String AdressLine;
   bool _locating = false;
@@ -28,7 +28,7 @@ class _mapScreenState extends State<mapScreen> {
         children: [
           GoogleMap(
             initialCameraPosition: CameraPosition(
-              target: currentLocation1,
+              target: currentLocation1!,
               zoom: 14.4746,
             ),
           )
