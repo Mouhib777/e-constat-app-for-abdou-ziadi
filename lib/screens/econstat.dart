@@ -55,11 +55,11 @@ class _EconstatState extends State<Econstat> {
         steps: getSteps(),
         currentStep: currentStep,
         onStepContinue: () {
-          final isLastStep = currentStep == getSteps().length - 1 ; 
-          if()
-          setState(() {
-            currentStep += 1;
-          });
+          final lastStep = currentStep == getSteps().length - 1;
+          if (lastStep)
+            setState(() {
+              currentStep += 1;
+            });
         },
         onStepCancel: () {
           setState(() {
