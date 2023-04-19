@@ -89,7 +89,7 @@ class _EconstatState extends State<Econstat> {
                       child: ElevatedButton(
                     onPressed: ControlsDetails.onStepContinue,
                     child: Text(
-                      lastStep ? 'Confimer' : 'Suivant',
+                      lastStep ? 'Confirmer' : 'Suivant',
                       style: GoogleFonts.raleway(),
                     ),
                     style: ElevatedButton.styleFrom(
