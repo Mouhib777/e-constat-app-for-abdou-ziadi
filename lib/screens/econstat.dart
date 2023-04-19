@@ -18,7 +18,9 @@ class _EconstatState extends State<Econstat> {
             'Vehicule A',
             style: GoogleFonts.raleway(fontSize: 12),
           ),
-          content: Container(),
+          content: Column(
+            children: [],
+          ),
         ),
         Step(
           isActive: currentStep >= 1,
