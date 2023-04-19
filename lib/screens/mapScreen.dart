@@ -1,9 +1,5 @@
 import 'package:e_constat/providers/locationProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +32,7 @@ class _mapScreenState extends State<mapScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
