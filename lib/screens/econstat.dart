@@ -58,6 +58,10 @@ class _EconstatState extends State<Econstat> {
           final lastStep = currentStep == getSteps().length - 1;
           if (lastStep) {
             print('okk');
+          } else {
+            setState(() {
+              currentStep += 1;
+            });
           }
           setState(() {
             currentStep += 1;
