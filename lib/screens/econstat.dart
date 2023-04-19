@@ -16,7 +16,7 @@ class _EconstatState extends State<Econstat> {
           isActive: currentStep >= 0,
           title: Text(
             'Vehicule A',
-            style: GoogleFonts.raleway(),
+            style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Container(),
         ),
@@ -24,7 +24,7 @@ class _EconstatState extends State<Econstat> {
           isActive: currentStep >= 1,
           title: Text(
             'Vehicule B',
-            style: GoogleFonts.raleway(),
+            style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Container(),
         ),
@@ -32,7 +32,7 @@ class _EconstatState extends State<Econstat> {
           isActive: currentStep >= 2,
           title: Text(
             'Confirmation',
-            style: GoogleFonts.raleway(),
+            style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Container(),
         )
@@ -51,6 +51,7 @@ class _EconstatState extends State<Econstat> {
         centerTitle: true,
       ),
       body: Stepper(
+        elevation: 4,
         type: StepperType.horizontal,
         steps: getSteps(),
         currentStep: currentStep,
