@@ -76,6 +76,22 @@ class _EconstatState extends State<Econstat> {
                   currentStep -= 1;
                 });
         },
+        controlsBuilder:(context, onStepContinue) {
+          return Container(
+            margin: EdgeInsets.only(top: 50),
+            child:  Row(
+              children: [
+                Expanded(child: ElevatedButton(
+                  onPressed: onStepContinue ,
+                   child: Text('suivant')
+                   )
+                   )
+              ],
+            ),
+          )
+        },
+        
+        ,
         // onStepTapped: (step) {
         //   setState(() {
         //     currentStep = step;
