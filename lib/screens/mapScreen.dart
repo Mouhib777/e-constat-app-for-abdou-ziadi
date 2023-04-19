@@ -20,7 +20,7 @@ class _mapScreenState extends State<mapScreen> {
   late String AdressLine;
   bool _locating = false;
   bool _loggedIn = false;
-  Future initState() async {
+  Future getCurrentLocation() async {
     final locationData = Provider.of<LocationProvider>(context, listen: false);
     LocationPermission permission;
     permission = await Geolocator.requestPermission();
@@ -32,8 +32,6 @@ class _mapScreenState extends State<mapScreen> {
     // } else {
     //   print('permission NOT ALLOWED');
     // }
-
-    super.initState();
   }
 
   @override
