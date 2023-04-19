@@ -13,13 +13,6 @@ class mapScreen extends StatefulWidget {
 class _mapScreenState extends State<mapScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "ou l'accident",
-          style: GoogleFonts.raleway(),
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }

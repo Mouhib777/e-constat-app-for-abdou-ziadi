@@ -1,3 +1,4 @@
+import 'package:e_constat/screens/mapScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -56,7 +57,7 @@ class _EconstatState extends State<Econstat> {
         centerTitle: true,
       ),
       body: isCompleted
-          ? buildCompleted()
+          ? mapScreen()
           : Stepper(
               elevation: 4,
               type: StepperType.horizontal,
