@@ -13,6 +13,7 @@ class Econstat extends StatefulWidget {
 class _EconstatState extends State<Econstat> {
   List<Step> getSteps() => [
         Step(
+          state: currentStep > 0 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 0,
           title: Text(
             'Vehicule A',
@@ -23,6 +24,7 @@ class _EconstatState extends State<Econstat> {
           ),
         ),
         Step(
+          state: currentStep > 1 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 1,
           title: Text(
             'Vehicule B',
@@ -74,6 +76,11 @@ class _EconstatState extends State<Econstat> {
                   currentStep -= 1;
                 });
         },
+        // onStepTapped: (step) {
+        //   setState(() {
+        //     currentStep = step;
+        //   });
+        // },
       ),
     );
   }
