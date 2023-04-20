@@ -1,8 +1,10 @@
+import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class Econstat extends StatefulWidget {
   const Econstat({super.key});
@@ -68,6 +70,45 @@ class _EconstatState extends State<Econstat> {
                 if (lastStep) {
                   setState(() {
                     isCompleted = true;
+                    var alertStyle = AlertStyle(
+                      backgroundColor: thirdColor,
+                      overlayColor: Color.fromARGB(103, 0, 0, 0),
+                      animationType: AnimationType.grow,
+                      isCloseButton: false,
+                      isOverlayTapDismiss: false,
+                      animationDuration: Duration(milliseconds: 400),
+                      alertBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        side: BorderSide(color: primaryColor, width: 3),
+                      ),
+                      titleStyle: GoogleFonts.raleway(
+                          color: primaryColor,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 3),
+                    );
+
+                    Alert(
+                      context: context,
+                      style: alertStyle,
+                      type: AlertType.none,
+                      title: "Localiser l'accident",
+                      buttons: [
+                        DialogButton(
+                          width: 130,
+                          child: Text(
+                            "D'accord",
+                            style: GoogleFonts.raleway(
+                                color: thirdColor,
+                                fontSize: 20,
+                                letterSpacing: 3),
+                          ),
+                          onPressed: () =>
+                              Navigator.of(context, rootNavigator: true).pop(),
+                          color: primaryColor,
+                          radius: BorderRadius.circular(10.0),
+                        ),
+                      ],
+                    ).show();
                   });
                   print('okk');
                 } else {

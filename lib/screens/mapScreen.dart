@@ -25,41 +25,7 @@ class _mapScreenState extends State<mapScreen> {
   @override
   Widget build(BuildContext context) {
     setState(() {
-      SchedulerBinding.instance.addPostFrameCallback((_) {
-        var alertStyle = AlertStyle(
-          backgroundColor: thirdColor,
-          overlayColor: Color.fromARGB(103, 0, 0, 0),
-          animationType: AnimationType.grow,
-          isCloseButton: false,
-          isOverlayTapDismiss: false,
-          animationDuration: Duration(milliseconds: 400),
-          alertBorder: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
-            side: BorderSide(color: primaryColor, width: 5),
-          ),
-          titleStyle: GoogleFonts.raleway(
-              color: primaryColor, fontWeight: FontWeight.w600),
-        );
-
-        Alert(
-          context: context,
-          style: alertStyle,
-          type: AlertType.none,
-          title: "Localiser l'accident",
-          buttons: [
-            DialogButton(
-              width: 110,
-              child: Text(
-                "D'accord",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
-              color: primaryColor,
-              radius: BorderRadius.circular(10.0),
-            ),
-          ],
-        ).show();
-      });
+      SchedulerBinding.instance.addPostFrameCallback((_) {});
     });
     final locationData = Provider.of<LocationProvider>(context);
 
@@ -121,6 +87,54 @@ class _mapScreenState extends State<mapScreen> {
             ],
           ),
         ),
+        Positioned(
+            bottom: 5.0,
+            right: 5,
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.98,
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      border: Border.all(
+                        color: Colors.green,
+                        // color: Colors.transparent,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(21),
+                    ),
+                    height: 190,
+                    width: MediaQuery.of(context).size.width,
+                    //color: Colors.white,
+                    child: Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 20),
+                                child: TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Image.asset(
+                                    'assets/images/logo.png',
+                                    width: 24,
+                                    height: 34,
+                                  ),
+                                  label: Text(
+                                    _locating
+                                        ? 'Locating...'
+                                        : locationData
+                                            .selectedAddress.featureName,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.montserrat(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.amber),
+                                  ),
+                                ),
+                              ),
+                            ])))))
       ]),
     );
   }
