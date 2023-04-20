@@ -1,3 +1,4 @@
+import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/providers/locationProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -60,6 +61,25 @@ class _mapScreenState extends State<mapScreen> {
             });
             locationData.getMoveCamera();
           },
+        ),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 29,
+              ),
+              Container(
+                height: 50,
+                margin: EdgeInsets.only(bottom: 30),
+                child: Icon(
+                  Icons.gps_fixed,
+                  size: 40,
+                  color: secondaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ]),
     );
