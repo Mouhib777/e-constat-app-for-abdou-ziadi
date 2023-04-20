@@ -1,8 +1,10 @@
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/providers/locationProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class mapScreen extends StatefulWidget {
   const mapScreen({super.key});
@@ -25,6 +27,53 @@ class _mapScreenState extends State<mapScreen> {
 
     setState(() {
       currentLocation = LatLng(locationData.latitude, locationData.longitude);
+    });
+    setState(() {
+      var alertStyle = AlertStyle(
+        overlayColor: Color.fromARGB(33, 57, 42, 59),
+        animationType: AnimationType.grow,
+        isCloseButton: false,
+        isOverlayTapDismiss: false,
+        descStyle: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
+        animationDuration: Duration(milliseconds: 400),
+        alertBorder: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50.0),
+          side: BorderSide(
+            color: Colors.blue,
+          ),
+        ),
+        titleStyle: GoogleFonts.montserrat(color: Colors.red
+            // Color.fromARGB(255, 228, 94, 16),
+            ),
+      );
+
+      Alert(
+        // image:
+        //     Image.asset("assets/images/location.jpg"),
+        context: context,
+        style: alertStyle,
+        type: AlertType.none,
+        title: "mizel ma9bleksh",
+        desc: "ki ye9blek iwali andek autorisation besh tehki maah",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "OK !",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.of(context, rootNavigator: true).pop()
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) =>
+            //             chatScreenHome())),
+            ,
+            color: Colors.amber,
+            // Color.fromARGB(255, 187, 137, 196),
+            radius: BorderRadius.circular(10.0),
+          ),
+        ],
+      ).show();
     });
 
     void onCreated(GoogleMapController controller) {
