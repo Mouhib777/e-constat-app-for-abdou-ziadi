@@ -36,7 +36,7 @@ class _mapScreenState extends State<mapScreen> {
       backgroundColor: Colors.transparent,
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
-          target: curr,
+          target: currentLocation,
           zoom: 14.4746,
         ),
         zoomControlsEnabled: false,
