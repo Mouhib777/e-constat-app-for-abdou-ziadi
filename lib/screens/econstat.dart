@@ -24,7 +24,16 @@ class _EconstatState extends State<Econstat> {
           ),
           content: Column(
             children: [
-              FormBuilder(initialData: sampleData, index: 0, onSubmit: () {})
+              FormBuilder(
+                  initialData: data0,
+                  title: 'hahahah',
+                  index: 0,
+                  onSubmit: () {}),
+              FormBuilder(
+                  initialData: data1,
+                  title: 'hhhhhhhh',
+                  index: 0,
+                  onSubmit: () {})
             ],
           ),
         ),
