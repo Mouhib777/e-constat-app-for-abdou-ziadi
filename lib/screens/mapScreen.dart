@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
+const LatLng curr = LatLng(0, 0);
+
 class mapScreen extends StatefulWidget {
   const mapScreen({super.key});
 
@@ -12,6 +14,7 @@ class mapScreen extends StatefulWidget {
 
 class _mapScreenState extends State<mapScreen> {
   late LatLng currentLocation;
+
   late GoogleMapController _mapController;
   late String AdressLine;
   bool _locating = false;
@@ -32,37 +35,32 @@ class _mapScreenState extends State<mapScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: currentLocation,
-              zoom: 14.4746,
-            ),
-            zoomControlsEnabled: false,
-            compassEnabled: true,
-            minMaxZoomPreference: MinMaxZoomPreference(1.5, 20.8),
-            myLocationEnabled: true,
-            myLocationButtonEnabled: true,
-            mapType: MapType.normal,
-            mapToolbarEnabled: true,
-            onCameraMove: (CameraPosition position) {
-              setState(() {
-                _locating = true;
-              });
-              locationData.onCameraMove(position);
-            },
-            onMapCreated: onCreated,
-            onCameraIdle: () {
-              setState(() {
-                _locating = false;
-              });
-              locationData.getMoveCamera();
-            },
-          )
-        ],
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: curr,
+          zoom: 14.4746,
+        ),
+        zoomControlsEnabled: false,
+        compassEnabled: true,
+        minMaxZoomPreference: MinMaxZoomPreference(1.5, 20.8),
+        myLocationEnabled: true,
+        myLocationButtonEnabled: true,
+        mapType: MapType.normal,
+        mapToolbarEnabled: true,
+        onCameraMove: (CameraPosition position) {
+          setState(() {
+            _locating = true;
+          });
+          locationData.onCameraMove(position);
+        },
+        onMapCreated: onCreated,
+        onCameraIdle: () {
+          setState(() {
+            _locating = false;
+          });
+          locationData.getMoveCamera();
+        },
       ),
     );
   }
