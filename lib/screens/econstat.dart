@@ -1,10 +1,10 @@
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:simple_form_builder/formbuilder.dart';
+import 'package:simple_form_builder/global/constant.dart';
 
 class Econstat extends StatefulWidget {
   const Econstat({super.key});
@@ -23,7 +23,9 @@ class _EconstatState extends State<Econstat> {
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
-            children: [],
+            children: [
+              FormBuilder(initialData: sampleData, index: 0, onSubmit: () {})
+            ],
           ),
         ),
         Step(

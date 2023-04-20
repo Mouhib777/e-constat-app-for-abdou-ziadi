@@ -121,6 +121,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  file_picker:
+    dependency: transitive
+    description:
+      name: file_picker
+      sha256: b85eb92b175767fdaa0c543bf3b0d1f610fe966412ea72845fe5ba7801e763ff
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.10"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -448,6 +456,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.4"
+  simple_form_builder:
+    dependency: "direct main"
+    description:
+      name: simple_form_builder
+      sha256: "8e4fe9deb655ea137dbb80f4bc98c8e958f7de5de512aed518632857fde30349"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.22"
   sky_engine:
     dependency: transitive
     description: flutter
