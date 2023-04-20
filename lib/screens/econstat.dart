@@ -26,12 +26,12 @@ class _EconstatState extends State<Econstat> {
             children: [
               FormBuilder(
                   initialData: data0,
-                  title: 'hahahah',
+                  title: "Societé d'assurance",
                   index: 0,
                   onSubmit: () {}),
               FormBuilder(
                   initialData: data1,
-                  title: 'hhhhhhhh',
+                  title: 'Identification du conducteur',
                   index: 0,
                   onSubmit: () {})
             ],
