@@ -34,32 +34,34 @@ class _mapScreenState extends State<mapScreen> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: currentLocation,
-          zoom: 14.4746,
+      body: Stack(children: [
+        GoogleMap(
+          initialCameraPosition: CameraPosition(
+            target: currentLocation,
+            zoom: 14.4746,
+          ),
+          zoomControlsEnabled: false,
+          compassEnabled: true,
+          minMaxZoomPreference: MinMaxZoomPreference(1.5, 20.8),
+          myLocationEnabled: true,
+          myLocationButtonEnabled: true,
+          mapType: MapType.normal,
+          mapToolbarEnabled: true,
+          onCameraMove: (CameraPosition position) {
+            setState(() {
+              _locating = true;
+            });
+            locationData.onCameraMove(position);
+          },
+          onMapCreated: onCreated,
+          onCameraIdle: () {
+            setState(() {
+              _locating = false;
+            });
+            locationData.getMoveCamera();
+          },
         ),
-        zoomControlsEnabled: false,
-        compassEnabled: true,
-        minMaxZoomPreference: MinMaxZoomPreference(1.5, 20.8),
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
-        mapType: MapType.normal,
-        mapToolbarEnabled: true,
-        onCameraMove: (CameraPosition position) {
-          setState(() {
-            _locating = true;
-          });
-          locationData.onCameraMove(position);
-        },
-        onMapCreated: onCreated,
-        onCameraIdle: () {
-          setState(() {
-            _locating = false;
-          });
-          locationData.getMoveCamera();
-        },
-      ),
+      ]),
     );
   }
 }
