@@ -4,6 +4,7 @@ import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -396,6 +397,7 @@ class _EconstatState extends State<Econstat> {
                             width: 300,
                             child: Image.asset('assets/images/constat.png')),
                         DropdownButton<String>(
+                          iconSize: 40,
                           value: dropdownValue,
                           onChanged: (String? newValue) {
                             setState(() {
@@ -434,11 +436,32 @@ class _EconstatState extends State<Econstat> {
                           ].map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
-                              child: Text(value),
+                              child: Text(
+                                value,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.bold),
+                              ),
                             );
                           }).toList(),
                         ),
-                        Text('numéro selectionné: $dropdownValue'),
+                        Text(
+                          'numéro selectionné: $dropdownValue',
+                          style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Prendre une photo pour la voiture aprés l'accident",
+                          style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w600, fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: Icon(CupertinoIcons.camera))
                       ],
                     )),
               )
