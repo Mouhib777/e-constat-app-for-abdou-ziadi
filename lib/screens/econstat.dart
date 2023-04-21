@@ -100,6 +100,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        controller: valable_du,
                         readOnly: true,
                         decoration: InputDecoration(
                             suffixIcon: InkWell(
@@ -108,6 +109,10 @@ class _EconstatState extends State<Econstat> {
                                 _selectDate(context);
                                 print(
                                     "${selectedDate.toLocal()}".split(' ')[0]);
+                                setState(() {
+                                  valable_du.text =
+                                      "${selectedDate.toLocal()}".split(' ')[0];
+                                });
                               },
                             ),
                             labelText: 'Attestation valable du',
