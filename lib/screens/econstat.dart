@@ -17,7 +17,7 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
-  User user = FirebaseAuth.user
+  User? user = FirebaseAuth.instance.currentUser ; 
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
