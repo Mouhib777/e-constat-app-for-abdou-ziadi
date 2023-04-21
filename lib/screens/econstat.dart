@@ -34,6 +34,7 @@ class _EconstatState extends State<Econstat> {
   final A_tel = TextEditingController();
   final V_marque = TextEditingController();
   final V_imma = TextEditingController();
+  final V_sens_suivi = TextEditingController();
   final V_venant = TextEditingController();
   final V_allant = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
@@ -288,7 +289,7 @@ class _EconstatState extends State<Econstat> {
                       ),
                       TextFormField(
                         decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
+                            labelText: 'Marque',
                             labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -298,7 +299,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: "N° d'immatriculation",
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
