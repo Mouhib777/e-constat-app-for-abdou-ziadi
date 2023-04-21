@@ -29,20 +29,10 @@ class _EconstatState extends State<Econstat> {
           content: Column(
             children: [
               FormBuilder(
-                  initialData: data0,
-                  //title: "",
-                  index: 0,
-                  onSubmit: () async {
-                    await FirebaseFirestore.instance
-                        .collection('utilisateur')
-                        .doc(user!.uid)
-                        .set({'vehicule A': data0});
-                  }),
-              // FormBuilder(
-              //     initialData: data1,
-              //     title: 'Identification du conducteur',
-              //     index: 0,
-              //     onSubmit: () {})
+                initialData: data0,
+                //title: "",
+                index: 0,
+              ),
             ],
           ),
         ),
@@ -184,7 +174,7 @@ class _EconstatState extends State<Econstat> {
                                     side: BorderSide.none,
                                     borderRadius: BorderRadius.circular(15))),
                           )),
-                        )
+                        ),
                     ],
                   ),
                 );
