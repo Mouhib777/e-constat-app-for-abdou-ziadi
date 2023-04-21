@@ -170,106 +170,126 @@ class _EconstatState extends State<Econstat> {
                         height: 30,
                       ),
                       Text(
-                        "Identification du conducteur",
+                        "Identité du conducteur",
+                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Nom',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Prénom',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Addresse',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Permis de conduire N°',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Délivré le',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        "Assuré",
+                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Nom',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Prénom',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Addresse',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Tél,',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        "Identité du Véhicule",
                         style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
                       ),
                       TextFormField(
                         decoration: InputDecoration(
                             labelText: 'hhhhhhh',
                             labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
