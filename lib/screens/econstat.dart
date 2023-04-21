@@ -17,7 +17,7 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
-  User? user = FirebaseAuth.instance.currentUser ; 
+  User? user = FirebaseAuth.instance.currentUser;
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
@@ -32,11 +32,11 @@ class _EconstatState extends State<Econstat> {
                   initialData: data0,
                   //title: "",
                   index: 0,
-                  onSubmit: ()async {
+                  onSubmit: () async {
                     await FirebaseFirestore.instance
-                    .collection('utilisateur')
-                    .doc()
-
+                        .collection('utilisateur')
+                        .doc(user!.uid)
+                        .set({'vehicule A': data0});
                   }),
               // FormBuilder(
               //     initialData: data1,
