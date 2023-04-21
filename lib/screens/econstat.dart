@@ -33,7 +33,14 @@ class _EconstatState extends State<Econstat> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      TextFormField(),
+                      TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return '';
+                          }
+                          return null;
+                        },
+                      ),
                       TextFormField(),
                       TextFormField(),
                       TextFormField(),
@@ -50,13 +57,7 @@ class _EconstatState extends State<Econstat> {
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
-            children: [
-              FormBuilder(
-                initialData: data1,
-                //title: "",
-                index: 0,
-              ),
-            ],
+            children: [],
           ),
         ),
         Step(
@@ -71,6 +72,18 @@ class _EconstatState extends State<Econstat> {
 
   int currentStep = 0;
   bool isCompleted = false;
+  Future uploadToDb()async {
+    await FirebaseFirestore.instance
+    .collection('utilisateur')
+    .doc(user!.uid)
+    .collection('les accidents')
+    .doc().set({
+
+    });
+    return uploadToDb();
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,21 +172,15 @@ class _EconstatState extends State<Econstat> {
                         width: 100,
                         child: Expanded(
                             child: ElevatedButton(
-                          onPressed: () async {
-                            ControlsDetails.onStepContinue;
-                            await FirebaseFirestore.instance
-                                .collection('utilisateur')
-                                .doc(user!.uid)
-                                .collection('les accidents')
-                                .doc()
-                                .set(
-                                    {'vehicule A': data0, 'vehicule B': data1});
-                          },
+                          onPressed: ControlsDetails.onStepContinue,
                           child: Text(
-                            lastStep ? 'Confirmer' : 'Suivant',
+                            lastStep ? '' : 'Suivant',
                             style: GoogleFonts.raleway(),
                           ),
                           style: ElevatedButton.styleFrom(
+                              backgroundColor: lastStep
+                                  ? Colors.transparent
+                                  : secondaryColor,
                               shape: RoundedRectangleBorder(
                                   side: BorderSide.none,
                                   borderRadius: BorderRadius.circular(15))),
@@ -187,7 +194,8 @@ class _EconstatState extends State<Econstat> {
                           width: 100,
                           child: Expanded(
                               child: ElevatedButton(
-                            onPressed: ControlsDetails.onStepCancel,
+                            onPressed:lastStep ?  : ControlsDetails.onStepCancel, 
+                            
                             child: Text(
                               'Précedent',
                               style: GoogleFonts.raleway(),
