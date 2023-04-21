@@ -18,6 +18,24 @@ class Econstat extends StatefulWidget {
 
 class _EconstatState extends State<Econstat> {
   final _formKey = GlobalKey<FormState>();
+  final nom_assurance = TextEditingController();
+  final police_dassurance = TextEditingController();
+  final agence = TextEditingController();
+  final valable_du = TextEditingController();
+  final valable_au = TextEditingController();
+  final C_nom = TextEditingController();
+  final C_prenom = TextEditingController();
+  final C_addresse = TextEditingController();
+  final C_numPermis = TextEditingController();
+  final C_permisDeli = TextEditingController();
+  final A_nom = TextEditingController();
+  final A_prenom = TextEditingController();
+  final A_addresse = TextEditingController();
+  final A_tel = TextEditingController();
+  final V_marque = TextEditingController();
+  final V_imma = TextEditingController();
+  final V_venant = TextEditingController();
+  final V_allant = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
   List<Step> getSteps() => [
         Step(
@@ -72,18 +90,16 @@ class _EconstatState extends State<Econstat> {
 
   int currentStep = 0;
   bool isCompleted = false;
-  Future uploadToDb()async {
+  Future uploadToDb() async {
     await FirebaseFirestore.instance
-    .collection('utilisateur')
-    .doc(user!.uid)
-    .collection('les accidents')
-    .doc().set({
-
-    });
+        .collection('utilisateur')
+        .doc(user!.uid)
+        .collection('les accidents')
+        .doc()
+        .set({});
     return uploadToDb();
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,13 +190,12 @@ class _EconstatState extends State<Econstat> {
                             child: ElevatedButton(
                           onPressed: ControlsDetails.onStepContinue,
                           child: Text(
-                            lastStep ? '' : 'Suivant',
+                            lastStep ? 'Confirmer' : 'Suivant',
                             style: GoogleFonts.raleway(),
                           ),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: lastStep
-                                  ? Colors.transparent
-                                  : secondaryColor,
+                              backgroundColor:
+                                  lastStep ? primaryColor : secondaryColor,
                               shape: RoundedRectangleBorder(
                                   side: BorderSide.none,
                                   borderRadius: BorderRadius.circular(15))),
@@ -194,8 +209,9 @@ class _EconstatState extends State<Econstat> {
                           width: 100,
                           child: Expanded(
                               child: ElevatedButton(
-                            onPressed:lastStep ?  : ControlsDetails.onStepCancel, 
-                            
+                            onPressed: ControlsDetails.onStepCancel,
+                            // lastStep ?  : ControlsDetails.onStepCancel,
+
                             child: Text(
                               'Précedent',
                               style: GoogleFonts.raleway(),
