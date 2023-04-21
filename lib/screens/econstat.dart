@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -14,6 +17,7 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
+  User user = FirebaseAuth.user
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
@@ -28,7 +32,12 @@ class _EconstatState extends State<Econstat> {
                   initialData: data0,
                   //title: "",
                   index: 0,
-                  onSubmit: () {}),
+                  onSubmit: ()async {
+                    await FirebaseFirestore.instance
+                    .collection('utilisateur')
+                    .doc()
+
+                  }),
               // FormBuilder(
               //     initialData: data1,
               //     title: 'Identification du conducteur',
