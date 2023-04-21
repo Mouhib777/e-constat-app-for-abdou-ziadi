@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
@@ -110,330 +111,337 @@ class _EconstatState extends State<Econstat> {
           ),
           content: Column(
             children: [
-              Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        "Societé d'assurance",
-                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Véhicule assuré par',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Svp donner le nom de votre assurance';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: "Police d'assurance N°",
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Agence',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        keyboardType: TextInputType.datetime,
-                        controller: valable_du,
-                        // readOnly: true,
-                        decoration: InputDecoration(
-                            suffixIcon: InkWell(
-                              child: Icon(Icons.calendar_month),
-                              // onTap: () {
-                              //   _selectDate(context);
-                              //   print(
-                              //       "${selectedDate.toLocal()}".split(' ')[0]);
-                              //   setState(() {
-                              //     valable_du.text =
-                              //         "${selectedDate.toLocal()}".split(' ')[0];
-                              //   });
-                              // },
-                            ),
-                            labelText: 'Attestation valable du',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        keyboardType: TextInputType.datetime,
-                        controller: valable_au,
-                        // readOnly: true,
-                        decoration: InputDecoration(
-                            suffixIcon: InkWell(
-                              child: Icon(Icons.calendar_month),
-                              //   onTap: () {
-                              //     _selectDate1(context);
-                              //     print(
-                              //         "${selectedDate1.toLocal()}".split(' ')[0]);
-                              //     setState(() {
-                              //       valable_au.text = "${selectedDate1.toLocal()}"
-                              //           .split(' ')[0];
-                              //     });
-                              //   },
-                            ),
-                            labelText: 'Attestation valable au',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        "Identité du conducteur",
-                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Nom',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Prénom',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Addresse',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Permis de conduire N°',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Délivré le',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        "Assuré",
-                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Nom',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Prénom',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Addresse',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Tél,',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        "Identité du Véhicule",
-                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Marque',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: "N° d'immatriculation",
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Sens suivi',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Venant a',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Allant a ',
-                            labelStyle: GoogleFonts.raleway()),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Indiquer par le numéro le point du choc initial",
-                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(
-                          width: 300,
-                          child: Image.asset('assets/images/constat.png')),
-                      DropdownButton<String>(
-                        value: dropdownValue,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownValue = newValue!;
-                          });
-                        },
-                        items: <String>[
-                          '1',
-                          '2',
-                          '3',
-                          '4',
-                          '5',
-                          '6',
-                          '7',
-                          '8',
-                          '9',
-                          '10',
-                          '11',
-                          '12',
-                          '13',
-                          '14',
-                          '15',
-                          '16',
-                          '17',
-                          '18',
-                          '19',
-                          '20',
-                          '21',
-                          '22',
-                          '23',
-                          '24',
-                          '25',
-                          '26',
-                          '27',
-                          '28'
-                        ].map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                      ),
-                      Text('numéro selectionné: $dropdownValue'),
-                    ],
-                  ))
+              FadeInDownBig(
+                child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          "Societé d'assurance",
+                          style:
+                              GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Véhicule assuré par',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Svp donner le nom de votre assurance';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: "Police d'assurance N°",
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Agence',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.datetime,
+                          controller: valable_du,
+                          // readOnly: true,
+                          decoration: InputDecoration(
+                              suffixIcon: InkWell(
+                                child: Icon(Icons.calendar_month),
+                                // onTap: () {
+                                //   _selectDate(context);
+                                //   print(
+                                //       "${selectedDate.toLocal()}".split(' ')[0]);
+                                //   setState(() {
+                                //     valable_du.text =
+                                //         "${selectedDate.toLocal()}".split(' ')[0];
+                                //   });
+                                // },
+                              ),
+                              labelText: 'Attestation valable du',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.datetime,
+                          controller: valable_au,
+                          // readOnly: true,
+                          decoration: InputDecoration(
+                              suffixIcon: InkWell(
+                                child: Icon(Icons.calendar_month),
+                                //   onTap: () {
+                                //     _selectDate1(context);
+                                //     print(
+                                //         "${selectedDate1.toLocal()}".split(' ')[0]);
+                                //     setState(() {
+                                //       valable_au.text = "${selectedDate1.toLocal()}"
+                                //           .split(' ')[0];
+                                //     });
+                                //   },
+                              ),
+                              labelText: 'Attestation valable au',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Identité du conducteur",
+                          style:
+                              GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Nom',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Prénom',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Addresse',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Permis de conduire N°',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Délivré le',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Assuré",
+                          style:
+                              GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Nom',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Prénom',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Addresse',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Tél,',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Identité du Véhicule",
+                          style:
+                              GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Marque',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: "N° d'immatriculation",
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Sens suivi',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Venant a',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Allant a ',
+                              labelStyle: GoogleFonts.raleway()),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "Indiquer par un numéro le point du choc initial",
+                          style:
+                              GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                            width: 300,
+                            child: Image.asset('assets/images/constat.png')),
+                        DropdownButton<String>(
+                          value: dropdownValue,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownValue = newValue!;
+                            });
+                          },
+                          items: <String>[
+                            '1',
+                            '2',
+                            '3',
+                            '4',
+                            '5',
+                            '6',
+                            '7',
+                            '8',
+                            '9',
+                            '10',
+                            '11',
+                            '12',
+                            '13',
+                            '14',
+                            '15',
+                            '16',
+                            '17',
+                            '18',
+                            '19',
+                            '20',
+                            '21',
+                            '22',
+                            '23',
+                            '24',
+                            '25',
+                            '26',
+                            '27',
+                            '28'
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
+                        Text('numéro selectionné: $dropdownValue'),
+                      ],
+                    )),
+              )
             ],
           ),
         ),
