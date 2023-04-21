@@ -118,20 +118,21 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.datetime,
                         controller: valable_du,
-                        readOnly: true,
+                        // readOnly: true,
                         decoration: InputDecoration(
                             suffixIcon: InkWell(
                               child: Icon(Icons.calendar_month),
-                              onTap: () {
-                                _selectDate(context);
-                                print(
-                                    "${selectedDate.toLocal()}".split(' ')[0]);
-                                setState(() {
-                                  valable_du.text =
-                                      "${selectedDate.toLocal()}".split(' ')[0];
-                                });
-                              },
+                              // onTap: () {
+                              //   _selectDate(context);
+                              //   print(
+                              //       "${selectedDate.toLocal()}".split(' ')[0]);
+                              //   setState(() {
+                              //     valable_du.text =
+                              //         "${selectedDate.toLocal()}".split(' ')[0];
+                              //   });
+                              // },
                             ),
                             labelText: 'Attestation valable du',
                             labelStyle: GoogleFonts.raleway()),
@@ -143,20 +144,21 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.datetime,
                         controller: valable_au,
-                        readOnly: true,
+                        // readOnly: true,
                         decoration: InputDecoration(
                             suffixIcon: InkWell(
                               child: Icon(Icons.calendar_month),
-                              onTap: () {
-                                _selectDate1(context);
-                                print(
-                                    "${selectedDate1.toLocal()}".split(' ')[0]);
-                                setState(() {
-                                  valable_au.text = "${selectedDate1.toLocal()}"
-                                      .split(' ')[0];
-                                });
-                              },
+                              //   onTap: () {
+                              //     _selectDate1(context);
+                              //     print(
+                              //         "${selectedDate1.toLocal()}".split(' ')[0]);
+                              //     setState(() {
+                              //       valable_au.text = "${selectedDate1.toLocal()}"
+                              //           .split(' ')[0];
+                              //     });
+                              //   },
                             ),
                             labelText: 'Attestation valable au',
                             labelStyle: GoogleFonts.raleway()),
@@ -310,7 +312,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'Sens suivi',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -319,7 +323,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'Venant a',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -328,16 +334,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'Allant a ',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
