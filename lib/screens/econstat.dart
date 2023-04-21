@@ -51,8 +51,22 @@ class _EconstatState extends State<Econstat> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      Text("Societé d'assurance"),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'Véhicule assuré par',
+                            labelStyle: GoogleFonts.raleway()),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Svp donner le nom de votre assurance';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: "Police d'assurance N°",
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -61,7 +75,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'Agence',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -70,7 +86,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -79,7 +97,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -88,7 +108,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -97,7 +119,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -106,7 +130,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -115,7 +141,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -124,7 +152,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -133,7 +163,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -142,16 +174,9 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return '';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'hhhhhhh'),
+                        decoration: InputDecoration(
+                            labelText: 'hhhhhhh',
+                            labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
