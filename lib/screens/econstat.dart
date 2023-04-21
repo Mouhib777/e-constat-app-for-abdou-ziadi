@@ -29,11 +29,11 @@ class _EconstatState extends State<Econstat> {
                   title: "Societé d'assurance",
                   index: 0,
                   onSubmit: () {}),
-              FormBuilder(
-                  initialData: data1,
-                  title: 'Identification du conducteur',
-                  index: 0,
-                  onSubmit: () {})
+              // FormBuilder(
+              //     initialData: data1,
+              //     title: 'Identification du conducteur',
+              //     index: 0,
+              //     onSubmit: () {})
             ],
           ),
         ),
