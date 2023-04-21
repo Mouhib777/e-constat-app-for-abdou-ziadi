@@ -37,6 +37,20 @@ class _EconstatState extends State<Econstat> {
   final V_venant = TextEditingController();
   final V_allant = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
+  DateTime selectedDate = DateTime.now();
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
@@ -86,8 +100,17 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        readOnly: true,
                         decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
+                            suffixIcon: InkWell(
+                              child: Icon(Icons.calendar_month),
+                              onTap: () {
+                                _selectDate(context);
+                                print(
+                                    "${selectedDate.toLocal()}".split(' ')[0]);
+                              },
+                            ),
+                            labelText: 'Attestation valable du',
                             labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -97,8 +120,13 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        readOnly: true,
                         decoration: InputDecoration(
-                            labelText: 'hhhhhhh',
+                            suffixIcon: InkWell(
+                              child: Icon(Icons.calendar_month),
+                              onTap: () {},
+                            ),
+                            labelText: 'Attestation valable au',
                             labelStyle: GoogleFonts.raleway()),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
