@@ -52,6 +52,7 @@ class _EconstatState extends State<Econstat> {
                   child: Column(
                     children: [
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -60,6 +61,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -68,6 +70,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -76,6 +79,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -84,6 +88,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -92,6 +97,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -100,6 +106,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -108,6 +115,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -116,6 +124,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -124,6 +133,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -132,6 +142,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -140,6 +151,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -148,6 +160,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -156,6 +169,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -164,6 +178,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -172,6 +187,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -180,6 +196,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -188,6 +205,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -196,6 +214,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
@@ -204,6 +223,7 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        decoration: InputDecoration(labelText: 'hhhhhhh'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '';
