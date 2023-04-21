@@ -9,6 +9,8 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:simple_form_builder/formbuilder.dart';
 import 'package:simple_form_builder/global/constant.dart';
 
+const List<String> list = <String>['Frontaux', 'Two', 'Three', 'Four'];
+
 class Econstat extends StatefulWidget {
   const Econstat({super.key});
 
