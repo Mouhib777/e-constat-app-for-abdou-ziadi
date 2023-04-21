@@ -51,6 +51,20 @@ class _EconstatState extends State<Econstat> {
     }
   }
 
+  DateTime selectedDate1 = DateTime.now();
+  Future<void> _selectDate1(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate1 = picked;
+      });
+    }
+  }
+
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
@@ -125,11 +139,20 @@ class _EconstatState extends State<Econstat> {
                         },
                       ),
                       TextFormField(
+                        controller: valable_au,
                         readOnly: true,
                         decoration: InputDecoration(
                             suffixIcon: InkWell(
                               child: Icon(Icons.calendar_month),
-                              onTap: () {},
+                              onTap: () {
+                                _selectDate1(context);
+                                print(
+                                    "${selectedDate1.toLocal()}".split(' ')[0]);
+                                setState(() {
+                                  valable_au.text = "${selectedDate1.toLocal()}"
+                                      .split(' ')[0];
+                                });
+                              },
                             ),
                             labelText: 'Attestation valable au',
                             labelStyle: GoogleFonts.raleway()),
