@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
@@ -10,6 +12,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:simple_form_builder/formbuilder.dart';
 import 'package:simple_form_builder/global/constant.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 const List<String> list = <String>[
   '1',
@@ -51,7 +55,10 @@ class Econstat extends StatefulWidget {
 
 class _EconstatState extends State<Econstat> {
 //    String dropdownValue = list.first;
-
+  final ImagePicker _picker = ImagePicker();
+  ImagePicker? imagePicker;
+  File? _pickedImage;
+  String? imageUrl;
   final _formKey = GlobalKey<FormState>();
   final nom_assurance = TextEditingController();
   final police_dassurance = TextEditingController();
@@ -73,6 +80,7 @@ class _EconstatState extends State<Econstat> {
   final V_venant = TextEditingController();
   final V_allant = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
+
   String dropdownValue = '1';
   DateTime selectedDate = DateTime.now();
   Future<void> _selectDate(BuildContext context) async {
@@ -99,6 +107,32 @@ class _EconstatState extends State<Econstat> {
       setState(() {
         selectedDate1 = picked;
       });
+    }
+  }
+
+  handle_image_camera() async {
+    XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+    _pickedImage = File(pickedFile!.path);
+
+    if (_pickedImage != null) {
+      setState(() {
+        _pickedImage;
+      });
+    } else {
+      EasyLoading.showError('Svp selectionner une image');
+    }
+  }
+
+  handle_image_gallery() async {
+    XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    _pickedImage = File(pickedFile!.path);
+
+    if (_pickedImage != null) {
+      setState(() {
+        _pickedImage;
+      });
+    } else {
+      EasyLoading.showError('Svp selectionner une image');
     }
   }
 
@@ -184,19 +218,9 @@ class _EconstatState extends State<Econstat> {
                         TextFormField(
                           keyboardType: TextInputType.datetime,
                           controller: valable_au,
-                          // readOnly: true,
                           decoration: InputDecoration(
                               suffixIcon: InkWell(
                                 child: Icon(Icons.calendar_month),
-                                //   onTap: () {
-                                //     _selectDate1(context);
-                                //     print(
-                                //         "${selectedDate1.toLocal()}".split(' ')[0]);
-                                //     setState(() {
-                                //       valable_au.text = "${selectedDate1.toLocal()}"
-                                //           .split(' ')[0];
-                                //     });
-                                //   },
                               ),
                               labelText: 'Attestation valable au',
                               labelStyle: GoogleFonts.raleway()),
