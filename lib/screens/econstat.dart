@@ -79,7 +79,10 @@ class _EconstatState extends State<Econstat> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      Text("Societé d'assurance"),
+                      Text(
+                        "Societé d'assurance",
+                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                      ),
                       TextFormField(
                         decoration: InputDecoration(
                             labelText: 'Véhicule assuré par',
@@ -162,6 +165,13 @@ class _EconstatState extends State<Econstat> {
                           }
                           return null;
                         },
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        "Identification du conducteur",
+                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
                       ),
                       TextFormField(
                         decoration: InputDecoration(
