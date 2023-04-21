@@ -17,6 +17,7 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
+  final _formKey = GlobalKey<FormState>();
   User? user = FirebaseAuth.instance.currentUser;
   List<Step> getSteps() => [
         Step(
@@ -28,11 +29,16 @@ class _EconstatState extends State<Econstat> {
           ),
           content: Column(
             children: [
-              FormBuilder(
-                initialData: data0,
-                //title: "",
-                index: 0,
-              ),
+              Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(),
+                      TextFormField(),
+                      TextFormField(),
+                      TextFormField(),
+                    ],
+                  ))
             ],
           ),
         ),
@@ -43,7 +49,15 @@ class _EconstatState extends State<Econstat> {
             'Vehicule B',
             style: GoogleFonts.raleway(fontSize: 12),
           ),
-          content: Container(),
+          content: Column(
+            children: [
+              FormBuilder(
+                initialData: data1,
+                //title: "",
+                index: 0,
+              ),
+            ],
+          ),
         ),
         Step(
           isActive: currentStep >= 2,
@@ -145,7 +159,16 @@ class _EconstatState extends State<Econstat> {
                         width: 100,
                         child: Expanded(
                             child: ElevatedButton(
-                          onPressed: ControlsDetails.onStepContinue,
+                          onPressed: () async {
+                            ControlsDetails.onStepContinue;
+                            await FirebaseFirestore.instance
+                                .collection('utilisateur')
+                                .doc(user!.uid)
+                                .collection('les accidents')
+                                .doc()
+                                .set(
+                                    {'vehicule A': data0, 'vehicule B': data1});
+                          },
                           child: Text(
                             lastStep ? 'Confirmer' : 'Suivant',
                             style: GoogleFonts.raleway(),
