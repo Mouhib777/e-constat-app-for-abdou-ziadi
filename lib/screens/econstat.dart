@@ -9,7 +9,36 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:simple_form_builder/formbuilder.dart';
 import 'package:simple_form_builder/global/constant.dart';
 
-const List<String> list = <String>['Frontaux', 'Two', 'Three', 'Four'];
+const List<String> list = <String>[
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+  '24',
+  '25',
+  '26',
+  '27',
+  '28'
+];
 
 class Econstat extends StatefulWidget {
   const Econstat({super.key});
@@ -19,6 +48,8 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
+//    String dropdownValue = list.first;
+
   final _formKey = GlobalKey<FormState>();
   final nom_assurance = TextEditingController();
   final police_dassurance = TextEditingController();
@@ -40,6 +71,7 @@ class _EconstatState extends State<Econstat> {
   final V_venant = TextEditingController();
   final V_allant = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
+  String dropdownValue = '1';
   DateTime selectedDate = DateTime.now();
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -81,7 +113,7 @@ class _EconstatState extends State<Econstat> {
               Form(
                   key: _formKey,
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       Text(
                         "Societé d'assurance",
                         style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
@@ -346,6 +378,60 @@ class _EconstatState extends State<Econstat> {
                           return null;
                         },
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Indiquer par le numéro le point du choc initial",
+                        style: GoogleFonts.raleway(fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(
+                          width: 300,
+                          child: Image.asset('assets/images/constat.png')),
+                      DropdownButton<String>(
+                        value: dropdownValue,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '1',
+                          '2',
+                          '3',
+                          '4',
+                          '5',
+                          '6',
+                          '7',
+                          '8',
+                          '9',
+                          '10',
+                          '11',
+                          '12',
+                          '13',
+                          '14',
+                          '15',
+                          '16',
+                          '17',
+                          '18',
+                          '19',
+                          '20',
+                          '21',
+                          '22',
+                          '23',
+                          '24',
+                          '25',
+                          '26',
+                          '27',
+                          '28'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                      Text('numéro selectionné: $dropdownValue'),
                     ],
                   ))
             ],
