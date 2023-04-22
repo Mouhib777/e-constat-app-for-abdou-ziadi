@@ -23,7 +23,7 @@ class VehiculeA extends StatefulWidget {
 
 class _VehiculeAState extends State<VehiculeA> {
   final ImagePicker _picker = ImagePicker();
-    User? user = FirebaseAuth.instance.currentUser;
+  User? user = FirebaseAuth.instance.currentUser;
 
   ImagePicker? imagePicker;
   File? _pickedImage;
@@ -575,43 +575,58 @@ class _VehiculeAState extends State<VehiculeA> {
                               ),
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  EasyLoading.showToast('Loading'); 
-                                  try{
-                                    if(_pickedImage==null){
-                                      EasyLoading.showError("Svp prendre une photo aprés l'accident");
-                                    }else{
-                                      final ref = FirebaseStorage.instance.ref()
-                                      .child(user!.uid.toString()+'.jpg');
-                                      await ref.putFile(_pickedImage!) ; 
+                                  EasyLoading.showToast('Loading');
+                                  try {
+                                    if (_pickedImage == null) {
+                                      EasyLoading.showError(
+                                          "Svp prendre une photo aprés l'accident");
+                                    } else {
+                                      final ref = FirebaseStorage.instance
+                                          .ref()
+                                          .child(user!.uid.toString() + '.jpg');
+                                      await ref.putFile(_pickedImage!);
                                       imageUrl = await ref.getDownloadURL();
                                       await FirebaseFirestore.instance
-                                      .collection('utilisateur')
-                                      .doc(user!.uid).set(
-                                        {
-                                          "Vehicule A" : [
-                                            {
-                                              "Nom assurance" :nom_assurance , 
-                                              "police d'assurance" : police_dassurance , 
-                                              "agence" : agence , 
-                                              "valable du" : valable_du , 
-                                              "valable_au" : valable_au,
-                                              "C nom" : C_nom, 
-                                              "C prenom" : C_prenom , 
-                                              "C addresse" : C_addresse , 
-                                              "C num permis" : C_numPermis , 
-                                              "C_permisDeli" : C_permisDeli , 
-                                              "A nom" : A_nom , 
-                                              "A prenom" : A_prenom , 
-                                              "A addresse" : A_addresse , 
-                                              "A_tel" : A_tel , 
-                                               
-                                            }
-                                          ]
-
-                                        }
-                                      );
+                                          .collection('utilisateur')
+                                          .doc(user!.uid)
+                                          .collection('les accidents')
+                                          .doc(user!.uid)
+                                          .set({
+                                        "Vehicule A": [
+                                          {
+                                            "Nom assurance": nom_assurance,
+                                            "police d'assurance":
+                                                police_dassurance,
+                                            "agence": agence,
+                                            "valable du": valable_du,
+                                            "valable_au": valable_au,
+                                            "C nom": C_nom,
+                                            "C prenom": C_prenom,
+                                            "C addresse": C_addresse,
+                                            "C num permis": C_numPermis,
+                                            "C_permisDeli": C_permisDeli,
+                                            "A nom": A_nom,
+                                            "A prenom": A_prenom,
+                                            "A addresse": A_addresse,
+                                            "A_tel": A_tel,
+                                            "V marque": V_marque,
+                                            "V imma": V_imma,
+                                            "V sens suivi": V_sens_suivi,
+                                            "V venant": V_venant,
+                                            "V allant": V_allant,
+                                            "point du choc initial":
+                                                dropdownValue
+                                          }
+                                        ]
+                                      });
                                     }
-                                    }
+                                  } catch (ex) {
+                                    print(ex);
+                                  }
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
                                   }
                                 }
                               },
