@@ -781,6 +781,8 @@ class _VehiculeBState extends State<VehiculeB> {
                                           MaterialPageRoute(
                                             builder: (context) => mapScreen(),
                                           ));
+                                      EasyLoading.showSuccess(
+                                          "Les données ont été envoyés avec succées");
                                     }
                                   } catch (ex) {
                                     print(ex);

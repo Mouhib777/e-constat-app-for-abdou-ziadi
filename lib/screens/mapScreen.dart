@@ -2,10 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/providers/locationProvider.dart';
 import 'package:e_constat/screens/option.dart';
+import 'package:e_constat/screens/paint.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
@@ -156,6 +158,7 @@ class _mapScreenState extends State<mapScreen> {
                                   style: GoogleFonts.raleway(),
                                 ),
                                 onPressed: () async {
+                                  EasyLoading.showToast("Loading");
                                   await FirebaseFirestore.instance
                                       .collection("utilisateur")
                                       .doc(user!.uid)
@@ -165,13 +168,15 @@ class _mapScreenState extends State<mapScreen> {
                                     "latitude": locationData.latitude,
                                     "longitude": locationData.longitude,
                                     "addresse de l'accident":
-                                        locationData.AddressLine
+                                        locationData.selectedAddress.addressLine
                                   });
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => optionScreen(),
+                                        builder: (context) => paintScreen(),
                                       ));
+                                  EasyLoading.showSuccess(
+                                      "Les données ont été envoyés avec succées");
                                 },
                               )
                             ])))))

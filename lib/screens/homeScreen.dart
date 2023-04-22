@@ -22,11 +22,12 @@ class _homeScreenState extends State<homeScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
+            colorFilter: ColorFilter.mode(primaryColor, BlendMode.multiply),
             image: AssetImage(
               "assets/images/road.jpg",
             ),
             fit: BoxFit.fill,
-            opacity: 210),
+            opacity: 1),
       ),
       child: Scaffold(
         appBar: AppBar(
