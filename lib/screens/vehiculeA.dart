@@ -586,6 +586,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                           .child(user!.uid.toString() + '.jpg');
                                       await ref.putFile(_pickedImage!);
                                       imageUrl = await ref.getDownloadURL();
+                                      EasyLoading.showInfo(imageUrl!);
                                       await FirebaseFirestore.instance
                                           .collection('utilisateur')
                                           .doc(user!.uid)
