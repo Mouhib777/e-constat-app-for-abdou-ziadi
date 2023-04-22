@@ -15,37 +15,6 @@ import 'package:simple_form_builder/global/constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-const List<String> list = <String>[
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  '13',
-  '14',
-  '15',
-  '16',
-  '17',
-  '18',
-  '19',
-  '20',
-  '21',
-  '22',
-  '23',
-  '24',
-  '25',
-  '26',
-  '27',
-  '28'
-];
-
 class Econstat extends StatefulWidget {
   const Econstat({super.key});
 
@@ -676,15 +645,15 @@ class _EconstatState extends State<Econstat> {
 
   int currentStep = 0;
   bool isCompleted = false;
-  Future uploadToDb() async {
-    await FirebaseFirestore.instance
-        .collection('utilisateur')
-        .doc(user!.uid)
-        .collection('les accidents')
-        .doc()
-        .set({});
-    return uploadToDb();
-  }
+  // Future uploadToDb() async {
+  //   await FirebaseFirestore.instance
+  //       .collection('utilisateur')
+  //       .doc(user!.uid)
+  //       .collection('les accidents')
+  //       .doc()
+  //       .set({});
+  //   return uploadToDb();
+  // }
 
   @override
   Widget build(BuildContext context) {
