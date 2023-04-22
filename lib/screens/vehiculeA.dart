@@ -7,8 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -139,6 +137,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Svp donner le nom de votre assurance';
+                                } else {
+                                  setState(() {
+                                    _nom_assurance = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -154,6 +156,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _police_dassurance = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -169,6 +175,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _agence = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -188,6 +198,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _valable_du = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -207,6 +221,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _valable_au = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -230,6 +248,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _C_nom = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -245,6 +267,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _C_nom = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -260,6 +286,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _C_addresse = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -275,6 +305,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _C_numPermis = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -290,6 +324,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _C_permisDeli = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -313,6 +351,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _A_nom = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -328,6 +370,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _A_prenom = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -343,6 +389,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _A_addresse = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -358,6 +408,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _A_tel = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -381,6 +435,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _V_marque = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -396,6 +454,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _V_imma = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -411,6 +473,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _V_sens_suivi = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -426,6 +492,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _V_venant = value;
+                                  });
                                 }
                                 return null;
                               },
@@ -441,6 +511,10 @@ class _VehiculeAState extends State<VehiculeA> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '';
+                                } else {
+                                  setState(() {
+                                    _V_allant = value;
+                                  });
                                 }
                                 return null;
                               },
