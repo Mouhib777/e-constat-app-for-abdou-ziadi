@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/econstat.dart';
 import 'package:e_constat/screens/sos.dart';
+import 'package:e_constat/screens/vehiculeA.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -65,7 +66,7 @@ class _optionScreenState extends State<optionScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Econstat(),
+                          builder: (context) => VehiculeA(),
                         ));
                   },
                   child: Text(
