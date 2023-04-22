@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/providers/locationProvider.dart';
+import 'package:e_constat/screens/option.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +19,7 @@ class mapScreen extends StatefulWidget {
 }
 
 class _mapScreenState extends State<mapScreen> {
+  User? user = FirebaseAuth.instance.currentUser;
   late LatLng currentLocation;
 
   late GoogleMapController _mapController;
@@ -24,9 +29,6 @@ class _mapScreenState extends State<mapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      SchedulerBinding.instance.addPostFrameCallback((_) {});
-    });
     final locationData = Provider.of<LocationProvider>(context);
 
     setState(() {
@@ -40,6 +42,14 @@ class _mapScreenState extends State<mapScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Localiser l'accident",
+          style: GoogleFonts.montserrat(
+              fontWeight: FontWeight.w600, fontSize: 18, letterSpacing: 4),
+        ),
+        centerTitle: true,
+      ),
       backgroundColor: Colors.transparent,
       body: Stack(children: [
         GoogleMap(
@@ -94,15 +104,15 @@ class _mapScreenState extends State<mapScreen> {
                 width: MediaQuery.of(context).size.width * 0.98,
                 child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: thirdColor,
                       border: Border.all(
-                        color: Colors.green,
+                        color: secondaryColor,
                         // color: Colors.transparent,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(21),
                     ),
-                    height: 190,
+                    height: 180,
                     width: MediaQuery.of(context).size.width,
                     //color: Colors.white,
                     child: Padding(
@@ -116,11 +126,7 @@ class _mapScreenState extends State<mapScreen> {
                                     const EdgeInsets.only(left: 10, right: 20),
                                 child: TextButton.icon(
                                   onPressed: () {},
-                                  icon: Image.asset(
-                                    'assets/images/logo.png',
-                                    width: 24,
-                                    height: 34,
-                                  ),
+                                  icon: Icon(Icons.gps_fixed),
                                   label: Text(
                                     _locating
                                         ? 'Locating...'
@@ -130,10 +136,44 @@ class _mapScreenState extends State<mapScreen> {
                                     style: GoogleFonts.montserrat(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.amber),
+                                        color: primaryColor),
                                   ),
                                 ),
                               ),
+                              Text(
+                                _locating
+                                    ? ""
+                                    : locationData.selectedAddress.addressLine,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.bold, fontSize: 14),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              ElevatedButton(
+                                child: Text(
+                                  "Envoyer mon e-constat",
+                                  style: GoogleFonts.raleway(),
+                                ),
+                                onPressed: () async {
+                                  await FirebaseFirestore.instance
+                                      .collection("utilisateur")
+                                      .doc(user!.uid)
+                                      .collection("les accidents")
+                                      .doc(user!.uid)
+                                      .update({
+                                    "latitude": locationData.latitude,
+                                    "longitude": locationData.longitude,
+                                    "addresse de l'accident":
+                                        locationData.AddressLine
+                                  });
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => optionScreen(),
+                                      ));
+                                },
+                              )
                             ])))))
       ]),
     );
