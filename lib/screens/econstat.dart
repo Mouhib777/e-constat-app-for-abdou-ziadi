@@ -484,8 +484,115 @@ class _EconstatState extends State<Econstat> {
                         SizedBox(
                           height: 30,
                         ),
-                        IconButton(
-                            onPressed: () {}, icon: Icon(CupertinoIcons.camera))
+                        InkWell(
+                          onTap: () async {
+                            var alertStyle = AlertStyle(
+                              overlayColor: Color.fromARGB(62, 0, 0, 0),
+                              animationType: AnimationType.shrink,
+                              isCloseButton: false,
+                              isOverlayTapDismiss: true,
+                              descStyle: GoogleFonts.raleway(
+                                  fontSize: 14, fontWeight: FontWeight.w400),
+                              animationDuration: Duration(milliseconds: 400),
+                              alertBorder: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50.0),
+                                side: BorderSide(
+                                  color: secondaryColor,
+                                ),
+                              ),
+                              titleStyle: GoogleFonts.raleway(
+                                  fontSize: 16,
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.bold),
+                            );
+
+                            Alert(
+                              context: context,
+                              style: alertStyle,
+                              type: AlertType.none,
+                              title:
+                                  "Une photo pour la voiture aprés l'accident",
+                              buttons: [
+                                DialogButton(
+                                  child: Icon(
+                                    Icons.drive_folder_upload,
+                                    color: thirdColor,
+                                  ),
+                                  onPressed: () {
+                                    handle_image_gallery();
+                                    Navigator.pop(context);
+                                  },
+                                  color: primaryColor,
+                                  radius: BorderRadius.circular(10.0),
+                                ),
+                                DialogButton(
+                                  child: Icon(
+                                    CupertinoIcons.camera,
+                                    color: thirdColor,
+                                  ),
+                                  onPressed: () {
+                                    handle_image_camera();
+                                    Navigator.pop(context);
+                                  },
+                                  color: primaryColor,
+                                  radius: BorderRadius.circular(10.0),
+                                ),
+                              ],
+                            ).show();
+                          },
+                          child: SizedBox(
+                            height: 190,
+                            width: 250,
+                            child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0)),
+                                child: ClipRRect(
+                                  child: _pickedImage == null
+                                      ? Center(
+                                          child: Text(
+                                            'Clicker ici',
+                                            style: GoogleFonts.raleway(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 3,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        )
+                                      : Column(
+                                          children: <Widget>[
+                                            Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.2217,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.95,
+                                              child: AspectRatio(
+                                                aspectRatio: 16 / 9,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                    color: Color.fromARGB(
+                                                        15, 33, 149, 243),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.contain,
+                                                      image: FileImage(
+                                                          _pickedImage!),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                )),
+                          ),
+                        ),
                       ],
                     )),
               )
