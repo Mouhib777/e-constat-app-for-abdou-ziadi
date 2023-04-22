@@ -204,6 +204,7 @@ class _EconstatState extends State<Econstat> {
                               GoogleFonts.raleway(fontWeight: FontWeight.w600),
                         ),
                         TextFormField(
+                          controller: nom_assurance,
                           decoration: InputDecoration(
                               labelText: 'Véhicule assuré par',
                               labelStyle: GoogleFonts.raleway()),
@@ -215,6 +216,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: police_dassurance,
                           decoration: InputDecoration(
                               labelText: "Police d'assurance N°",
                               labelStyle: GoogleFonts.raleway()),
