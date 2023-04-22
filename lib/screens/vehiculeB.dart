@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/mapScreen.dart';
 import 'package:e_constat/screens/vehiculeB.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -13,14 +14,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class VehiculeA extends StatefulWidget {
-  const VehiculeA({super.key});
+class VehiculeB extends StatefulWidget {
+  const VehiculeB({super.key});
 
   @override
-  State<VehiculeA> createState() => _VehiculeAState();
+  State<VehiculeB> createState() => _VehiculeBState();
 }
 
-class _VehiculeAState extends State<VehiculeA> {
+class _VehiculeBState extends State<VehiculeB> {
   final ImagePicker _picker = ImagePicker();
   User? user = FirebaseAuth.instance.currentUser;
 
@@ -28,44 +29,44 @@ class _VehiculeAState extends State<VehiculeA> {
   File? _pickedImage;
   String? imageUrl;
   final _formKey = GlobalKey<FormState>();
-  var nom_assurance = TextEditingController();
-  var police_dassurance = TextEditingController();
-  var agence = TextEditingController();
-  var valable_du = TextEditingController();
-  var valable_au = TextEditingController();
-  var C_nom = TextEditingController();
-  var C_prenom = TextEditingController();
-  var C_addresse = TextEditingController();
-  var C_numPermis = TextEditingController();
-  var C_permisDeli = TextEditingController();
-  var A_nom = TextEditingController();
-  var A_prenom = TextEditingController();
-  var A_addresse = TextEditingController();
-  var A_tel = TextEditingController();
-  var V_marque = TextEditingController();
-  var V_imma = TextEditingController();
-  var V_sens_suivi = TextEditingController();
-  var V_venant = TextEditingController();
-  var V_allant = TextEditingController();
-  String? _nom_assurance;
-  String? _police_dassurance;
-  String? _agence;
-  String? _valable_du;
-  String? _valable_au;
-  String? _C_nom;
-  String? _C_prenom;
-  String? _C_addresse;
-  String? _C_numPermis;
-  String? _C_permisDeli;
-  String? _A_nom;
-  String? _A_prenom;
-  String? _A_addresse;
-  String? _A_tel;
-  String? _V_marque;
-  String? _V_imma;
-  String? _V_sens_suivi;
-  String? _V_venant;
-  String? _V_allant;
+  var nom_assurance1 = TextEditingController();
+  var police_dassurance1 = TextEditingController();
+  var agence1 = TextEditingController();
+  var valable_du1 = TextEditingController();
+  var valable_au1 = TextEditingController();
+  var C_nom1 = TextEditingController();
+  var C_prenom1 = TextEditingController();
+  var C_addresse1 = TextEditingController();
+  var C_numPermis1 = TextEditingController();
+  var C_permisDeli1 = TextEditingController();
+  var A_nom1 = TextEditingController();
+  var A_prenom1 = TextEditingController();
+  var A_addresse1 = TextEditingController();
+  var A_tel1 = TextEditingController();
+  var V_marque1 = TextEditingController();
+  var V_imma1 = TextEditingController();
+  var V_sens_suivi1 = TextEditingController();
+  var V_venant1 = TextEditingController();
+  var V_allant1 = TextEditingController();
+  String? _nom_assurance1;
+  String? _police_dassurance1;
+  String? _agence1;
+  String? _valable_du1;
+  String? _valable_au1;
+  String? _C_nom1;
+  String? _C_prenom1;
+  String? _C_addresse1;
+  String? _C_numPermis1;
+  String? _C_permisDeli1;
+  String? _A_nom1;
+  String? _A_prenom1;
+  String? _A_addresse1;
+  String? _A_tel1;
+  String? _V_marque1;
+  String? _V_imma1;
+  String? _V_sens_suivi1;
+  String? _V_venant1;
+  String? _V_allant1;
   String dropdownValue = '1';
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -97,8 +98,9 @@ class _VehiculeAState extends State<VehiculeA> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
-          'Vehicule A',
+          'Vehicule B',
           style: GoogleFonts.raleway(),
         ),
         centerTitle: true,
@@ -129,9 +131,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _nom_assurance = value;
+                                _nom_assurance1 = value;
                               },
-                              controller: nom_assurance,
+                              controller: nom_assurance1,
                               decoration: InputDecoration(
                                   labelText: 'Véhicule assuré par',
                                   labelStyle: GoogleFonts.raleway()),
@@ -140,7 +142,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return 'Svp donner le nom de votre assurance';
                                 } else {
                                   setState(() {
-                                    _nom_assurance = value;
+                                    _nom_assurance1 = value;
                                   });
                                 }
                                 return null;
@@ -148,9 +150,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _police_dassurance = value;
+                                _police_dassurance1 = value;
                               },
-                              controller: police_dassurance,
+                              controller: police_dassurance1,
                               decoration: InputDecoration(
                                   labelText: "Police d'assurance N°",
                                   labelStyle: GoogleFonts.raleway()),
@@ -159,7 +161,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _police_dassurance = value;
+                                    _police_dassurance1 = value;
                                   });
                                 }
                                 return null;
@@ -167,9 +169,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _agence = value;
+                                _agence1 = value;
                               },
-                              controller: agence,
+                              controller: agence1,
                               decoration: InputDecoration(
                                   labelText: 'Agence',
                                   labelStyle: GoogleFonts.raleway()),
@@ -178,7 +180,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _agence = value;
+                                    _agence1 = value;
                                   });
                                 }
                                 return null;
@@ -186,10 +188,10 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _valable_du = value;
+                                _valable_du1 = value;
                               },
                               keyboardType: TextInputType.datetime,
-                              controller: valable_du,
+                              controller: valable_du1,
                               decoration: InputDecoration(
                                   suffixIcon: InkWell(
                                     child: Icon(Icons.calendar_month),
@@ -201,7 +203,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _valable_du = value;
+                                    _valable_du1 = value;
                                   });
                                 }
                                 return null;
@@ -209,10 +211,10 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _valable_au = value;
+                                _valable_au1 = value;
                               },
                               keyboardType: TextInputType.datetime,
-                              controller: valable_au,
+                              controller: valable_au1,
                               decoration: InputDecoration(
                                   suffixIcon: InkWell(
                                     child: Icon(Icons.calendar_month),
@@ -224,7 +226,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _valable_au = value;
+                                    _valable_au1 = value;
                                   });
                                 }
                                 return null;
@@ -240,9 +242,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _C_nom = value;
+                                _C_nom1 = value;
                               },
-                              controller: C_nom,
+                              controller: C_nom1,
                               decoration: InputDecoration(
                                   labelText: 'Nom',
                                   labelStyle: GoogleFonts.raleway()),
@@ -251,7 +253,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _C_nom = value;
+                                    _C_nom1 = value;
                                   });
                                 }
                                 return null;
@@ -259,9 +261,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _C_nom = value;
+                                _C_nom1 = value;
                               },
-                              controller: C_prenom,
+                              controller: C_prenom1,
                               decoration: InputDecoration(
                                   labelText: 'Prénom',
                                   labelStyle: GoogleFonts.raleway()),
@@ -270,7 +272,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _C_nom = value;
+                                    _C_nom1 = value;
                                   });
                                 }
                                 return null;
@@ -278,9 +280,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _C_addresse = value;
+                                _C_addresse1 = value;
                               },
-                              controller: C_addresse,
+                              controller: C_addresse1,
                               decoration: InputDecoration(
                                   labelText: 'Addresse',
                                   labelStyle: GoogleFonts.raleway()),
@@ -289,7 +291,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _C_addresse = value;
+                                    _C_addresse1 = value;
                                   });
                                 }
                                 return null;
@@ -297,9 +299,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _C_numPermis = value;
+                                _C_numPermis1 = value;
                               },
-                              controller: C_numPermis,
+                              controller: C_numPermis1,
                               decoration: InputDecoration(
                                   labelText: 'Permis de conduire N°',
                                   labelStyle: GoogleFonts.raleway()),
@@ -308,7 +310,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _C_numPermis = value;
+                                    _C_numPermis1 = value;
                                   });
                                 }
                                 return null;
@@ -316,9 +318,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _C_permisDeli = value;
+                                _C_permisDeli1 = value;
                               },
-                              controller: C_permisDeli,
+                              controller: C_permisDeli1,
                               decoration: InputDecoration(
                                   labelText: 'Délivré le',
                                   labelStyle: GoogleFonts.raleway()),
@@ -327,7 +329,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _C_permisDeli = value;
+                                    _C_permisDeli1 = value;
                                   });
                                 }
                                 return null;
@@ -343,9 +345,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _A_nom = value;
+                                _A_nom1 = value;
                               },
-                              controller: A_nom,
+                              controller: A_nom1,
                               decoration: InputDecoration(
                                   labelText: 'Nom',
                                   labelStyle: GoogleFonts.raleway()),
@@ -354,7 +356,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _A_nom = value;
+                                    _A_nom1 = value;
                                   });
                                 }
                                 return null;
@@ -362,9 +364,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _A_prenom = value;
+                                _A_prenom1 = value;
                               },
-                              controller: A_prenom,
+                              controller: A_prenom1,
                               decoration: InputDecoration(
                                   labelText: 'Prénom',
                                   labelStyle: GoogleFonts.raleway()),
@@ -373,7 +375,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _A_prenom = value;
+                                    _A_prenom1 = value;
                                   });
                                 }
                                 return null;
@@ -381,9 +383,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _A_addresse = value;
+                                _A_addresse1 = value;
                               },
-                              controller: A_addresse,
+                              controller: A_addresse1,
                               decoration: InputDecoration(
                                   labelText: 'Addresse',
                                   labelStyle: GoogleFonts.raleway()),
@@ -392,7 +394,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _A_addresse = value;
+                                    _A_addresse1 = value;
                                   });
                                 }
                                 return null;
@@ -400,9 +402,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _A_tel = value;
+                                _A_tel1 = value;
                               },
-                              controller: A_tel,
+                              controller: A_tel1,
                               decoration: InputDecoration(
                                   labelText: 'Tél,',
                                   labelStyle: GoogleFonts.raleway()),
@@ -411,7 +413,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _A_tel = value;
+                                    _A_tel1 = value;
                                   });
                                 }
                                 return null;
@@ -427,9 +429,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _V_marque = value;
+                                _V_marque1 = value;
                               },
-                              controller: V_marque,
+                              controller: V_marque1,
                               decoration: InputDecoration(
                                   labelText: 'Marque',
                                   labelStyle: GoogleFonts.raleway()),
@@ -438,7 +440,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _V_marque = value;
+                                    _V_marque1 = value;
                                   });
                                 }
                                 return null;
@@ -446,9 +448,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _V_imma = value;
+                                _V_imma1 = value;
                               },
-                              controller: V_imma,
+                              controller: V_imma1,
                               decoration: InputDecoration(
                                   labelText: "N° d'immatriculation",
                                   labelStyle: GoogleFonts.raleway()),
@@ -457,7 +459,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _V_imma = value;
+                                    _V_imma1 = value;
                                   });
                                 }
                                 return null;
@@ -465,9 +467,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _V_sens_suivi = value;
+                                _V_sens_suivi1 = value;
                               },
-                              controller: V_sens_suivi,
+                              controller: V_sens_suivi1,
                               decoration: InputDecoration(
                                   labelText: 'Sens suivi',
                                   labelStyle: GoogleFonts.raleway()),
@@ -476,7 +478,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _V_sens_suivi = value;
+                                    _V_sens_suivi1 = value;
                                   });
                                 }
                                 return null;
@@ -484,9 +486,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _V_venant = value;
+                                _V_venant1 = value;
                               },
-                              controller: V_venant,
+                              controller: V_venant1,
                               decoration: InputDecoration(
                                   labelText: 'Venant a',
                                   labelStyle: GoogleFonts.raleway()),
@@ -495,7 +497,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _V_venant = value;
+                                    _V_venant1 = value;
                                   });
                                 }
                                 return null;
@@ -503,9 +505,9 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                _V_allant = value;
+                                _V_allant1 = value;
                               },
-                              controller: V_allant,
+                              controller: V_allant1,
                               decoration: InputDecoration(
                                   labelText: 'Allant a ',
                                   labelStyle: GoogleFonts.raleway()),
@@ -514,7 +516,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                   return '';
                                 } else {
                                   setState(() {
-                                    _V_allant = value;
+                                    _V_allant1 = value;
                                   });
                                 }
                                 return null;
@@ -744,29 +746,29 @@ class _VehiculeAState extends State<VehiculeA> {
                                           .doc(user!.uid)
                                           .collection('les accidents')
                                           .doc(user!.uid)
-                                          .set({
-                                        "Vehicule A": [
+                                          .update({
+                                        "Vehicule B": [
                                           {
-                                            "Nom assurance": _nom_assurance,
+                                            "Nom assurance": _nom_assurance1,
                                             "police d'assurance":
-                                                _police_dassurance,
-                                            "agence": _agence,
-                                            "valable du": _valable_du,
-                                            "valable_au": _valable_au,
-                                            "C nom": _C_nom,
-                                            "C prenom": _C_prenom,
-                                            "C addresse": _C_addresse,
-                                            "C num permis": _C_numPermis,
-                                            "C_permisDeli": _C_permisDeli,
-                                            "A nom": _A_nom,
-                                            "A prenom": _A_prenom,
-                                            "A addresse": _A_addresse,
-                                            "A_tel": _A_tel,
-                                            "V marque": _V_marque,
-                                            "V imma": _V_imma,
-                                            "V sens suivi": _V_sens_suivi,
-                                            "V venant": _V_venant,
-                                            "V allant": _V_allant,
+                                                _police_dassurance1,
+                                            "agence": _agence1,
+                                            "valable du": _valable_du1,
+                                            "valable_au": _valable_au1,
+                                            "C nom": _C_nom1,
+                                            "C prenom": _C_prenom1,
+                                            "C addresse": _C_addresse1,
+                                            "C num permis": _C_numPermis1,
+                                            "C_permisDeli": _C_permisDeli1,
+                                            "A nom": _A_nom1,
+                                            "A prenom": _A_prenom1,
+                                            "A addresse": _A_addresse1,
+                                            "A_tel": _A_tel1,
+                                            "V marque": _V_marque1,
+                                            "V imma": _V_imma1,
+                                            "V sens suivi": _V_sens_suivi1,
+                                            "V venant": _V_venant1,
+                                            "V allant": _V_allant1,
                                             "point du choc initial":
                                                 dropdownValue.toString(),
                                             "image de l'accident":
@@ -777,7 +779,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => VehiculeB(),
+                                            builder: (context) => mapScreen(),
                                           ));
                                     }
                                   } catch (ex) {
