@@ -635,6 +635,9 @@ class _EconstatState extends State<Econstat> {
                           style: GoogleFonts.raleway(
                               fontWeight: FontWeight.w600, fontSize: 16),
                         ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         DropdownButton<String>(
                           iconSize: 40,
                           value: dropdownValue1,
@@ -644,15 +647,301 @@ class _EconstatState extends State<Econstat> {
                             });
                           },
                           items: <String>[
-                            'En Stationnement'
-                                "A l'arret"
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
                           ].map<DropdownMenuItem<String>>((String value1) {
                             return DropdownMenuItem<String>(
                               value: value1,
                               child: Text(
                                 value1,
                                 style: GoogleFonts.raleway(
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue2,
+                          onChanged: (String? newValue2) {
+                            setState(() {
+                              dropdownValue1 = newValue2!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner1",
+                            "Quittait un stationnement",
+                            "Ouvrait une portiere"
+                          ].map<DropdownMenuItem<String>>((String value2) {
+                            return DropdownMenuItem<String>(
+                              value: value2,
+                              child: Text(
+                                value2,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue3,
+                          onChanged: (String? newValue3) {
+                            setState(() {
+                              dropdownValue1 = newValue3!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "Prenait un stationnement"
+                          ].map<DropdownMenuItem<String>>((String value3) {
+                            return DropdownMenuItem<String>(
+                              value: value3,
+                              child: Text(
+                                value3,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            "Selectionner",
+                            "En Stationnement",
+                            "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.w500),
                               ),
                             );
                           }).toList(),
@@ -686,15 +975,6 @@ class _EconstatState extends State<Econstat> {
 
   int currentStep = 0;
   bool isCompleted = false;
-  // Future uploadToDb() async {
-  //   await FirebaseFirestore.instance
-  //       .collection('utilisateur')
-  //       .doc(user!.uid)
-  //       .collection('les accidents')
-  //       .doc()
-  //       .set({});
-  //   return uploadToDb();
-  // }
 
   @override
   Widget build(BuildContext context) {
