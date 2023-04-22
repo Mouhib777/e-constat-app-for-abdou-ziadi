@@ -79,36 +79,29 @@ class _EconstatState extends State<Econstat> {
   final V_sens_suivi = TextEditingController();
   final V_venant = TextEditingController();
   final V_allant = TextEditingController();
+  final _formKey1 = GlobalKey<FormState>();
+  final nom_assurance1 = TextEditingController();
+  final police_dassurance1 = TextEditingController();
+  final agence1 = TextEditingController();
+  final valable_du1 = TextEditingController();
+  final valable_au1 = TextEditingController();
+  final C_nom1 = TextEditingController();
+  final C_prenom1 = TextEditingController();
+  final C_addresse1 = TextEditingController();
+  final C_numPermis1 = TextEditingController();
+  final C_permisDeli1 = TextEditingController();
+  final A_nom1 = TextEditingController();
+  final A_prenom1 = TextEditingController();
+  final A_addresse1 = TextEditingController();
+  final A_tel1 = TextEditingController();
+  final V_marque1 = TextEditingController();
+  final V_imma1 = TextEditingController();
+  final V_sens_suivi1 = TextEditingController();
+  final V_venant1 = TextEditingController();
+  final V_allant1 = TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
 
   String dropdownValue = '1';
-  DateTime selectedDate = DateTime.now();
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
-
-  DateTime selectedDate1 = DateTime.now();
-  Future<void> _selectDate1(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate1 = picked;
-      });
-    }
-  }
 
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -134,6 +127,60 @@ class _EconstatState extends State<Econstat> {
     } else {
       EasyLoading.showError('Svp selectionner une image');
     }
+  }
+
+  bool isDetailComplete() {
+    if (currentStep == 0) {
+      //check sender fields
+      if (nom_assurance.text.isEmpty ||
+          police_dassurance.text.isEmpty ||
+          agence.text.isEmpty ||
+          valable_du.text.isEmpty ||
+          valable_au.text.isEmpty ||
+          C_nom.text.isEmpty ||
+          C_prenom.text.isEmpty ||
+          C_addresse.text.isEmpty ||
+          C_numPermis.text.isEmpty ||
+          C_permisDeli.text.isEmpty ||
+          A_nom.text.isEmpty ||
+          A_prenom.text.isEmpty ||
+          A_addresse.text.isEmpty ||
+          A_tel.text.isEmpty ||
+          V_marque.text.isEmpty ||
+          V_imma.text.isEmpty ||
+          V_sens_suivi.text.isEmpty ||
+          V_venant.text.isEmpty ||
+          V_allant.text.isEmpty) {
+        return false;
+      } else {
+        return true; //if all fields are not empty
+      }
+    } else if (currentStep == 1) {
+      if (nom_assurance1.text.isEmpty ||
+          police_dassurance1.text.isEmpty ||
+          agence1.text.isEmpty ||
+          valable_du1.text.isEmpty ||
+          valable_au1.text.isEmpty ||
+          C_nom1.text.isEmpty ||
+          C_prenom1.text.isEmpty ||
+          C_addresse1.text.isEmpty ||
+          C_numPermis1.text.isEmpty ||
+          C_permisDeli1.text.isEmpty ||
+          A_nom1.text.isEmpty ||
+          A_prenom1.text.isEmpty ||
+          A_addresse1.text.isEmpty ||
+          A_tel1.text.isEmpty ||
+          V_marque1.text.isEmpty ||
+          V_imma1.text.isEmpty ||
+          V_sens_suivi1.text.isEmpty ||
+          V_venant1.text.isEmpty ||
+          V_allant1.text.isEmpty) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 
   List<Step> getSteps() => [
