@@ -48,6 +48,25 @@ class _VehiculeAState extends State<VehiculeA> {
   var V_sens_suivi = TextEditingController();
   var V_venant = TextEditingController();
   var V_allant = TextEditingController();
+  String? _nom_assurance;
+  String? _police_dassurance;
+  String? _agence;
+  String? _valable_du;
+  String? _valable_au;
+  String? _C_nom;
+  String? _C_prenom;
+  String? _C_addresse;
+  String? _C_numPermis;
+  String? _C_permisDeli;
+  String? _A_nom;
+  String? _A_prenom;
+  String? _A_addresse;
+  String? _A_tel;
+  String? _V_marque;
+  String? _V_imma;
+  String? _V_sens_suivi;
+  String? _V_venant;
+  String? _V_allant;
   String dropdownValue = '1';
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -111,7 +130,7 @@ class _VehiculeAState extends State<VehiculeA> {
                             ),
                             TextFormField(
                               onChanged: (value) {
-                                nom_assurance = value;
+                                _nom_assurance = value;
                               },
                               controller: nom_assurance,
                               decoration: InputDecoration(
@@ -125,6 +144,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _police_dassurance = value;
+                              },
                               controller: police_dassurance,
                               decoration: InputDecoration(
                                   labelText: "Police d'assurance N°",
@@ -137,6 +159,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _agence = value;
+                              },
                               controller: agence,
                               decoration: InputDecoration(
                                   labelText: 'Agence',
@@ -149,6 +174,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _valable_du = value;
+                              },
                               keyboardType: TextInputType.datetime,
                               controller: valable_du,
                               decoration: InputDecoration(
@@ -165,6 +193,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _valable_au = value;
+                              },
                               keyboardType: TextInputType.datetime,
                               controller: valable_au,
                               decoration: InputDecoration(
@@ -189,6 +220,9 @@ class _VehiculeAState extends State<VehiculeA> {
                                   fontWeight: FontWeight.w600),
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _C_nom = value;
+                              },
                               controller: C_nom,
                               decoration: InputDecoration(
                                   labelText: 'Nom',
@@ -201,6 +235,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _C_nom = value;
+                              },
                               controller: C_prenom,
                               decoration: InputDecoration(
                                   labelText: 'Prénom',
@@ -213,6 +250,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _C_addresse = value;
+                              },
                               controller: C_addresse,
                               decoration: InputDecoration(
                                   labelText: 'Addresse',
@@ -225,6 +265,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _C_numPermis = value;
+                              },
                               controller: C_numPermis,
                               decoration: InputDecoration(
                                   labelText: 'Permis de conduire N°',
@@ -237,6 +280,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _C_permisDeli = value;
+                              },
                               controller: C_permisDeli,
                               decoration: InputDecoration(
                                   labelText: 'Délivré le',
@@ -257,6 +303,9 @@ class _VehiculeAState extends State<VehiculeA> {
                                   fontWeight: FontWeight.w600),
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _A_nom = value;
+                              },
                               controller: A_nom,
                               decoration: InputDecoration(
                                   labelText: 'Nom',
@@ -269,6 +318,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _A_prenom = value;
+                              },
                               controller: A_prenom,
                               decoration: InputDecoration(
                                   labelText: 'Prénom',
@@ -281,6 +333,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _A_addresse = value;
+                              },
                               controller: A_addresse,
                               decoration: InputDecoration(
                                   labelText: 'Addresse',
@@ -293,6 +348,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _A_tel = value;
+                              },
                               controller: A_tel,
                               decoration: InputDecoration(
                                   labelText: 'Tél,',
@@ -313,6 +371,9 @@ class _VehiculeAState extends State<VehiculeA> {
                                   fontWeight: FontWeight.w600),
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _V_marque = value;
+                              },
                               controller: V_marque,
                               decoration: InputDecoration(
                                   labelText: 'Marque',
@@ -325,6 +386,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _V_imma = value;
+                              },
                               controller: V_imma,
                               decoration: InputDecoration(
                                   labelText: "N° d'immatriculation",
@@ -337,6 +401,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _V_sens_suivi = value;
+                              },
                               controller: V_sens_suivi,
                               decoration: InputDecoration(
                                   labelText: 'Sens suivi',
@@ -349,6 +416,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _V_venant = value;
+                              },
                               controller: V_venant,
                               decoration: InputDecoration(
                                   labelText: 'Venant a',
@@ -361,6 +431,9 @@ class _VehiculeAState extends State<VehiculeA> {
                               },
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                _V_allant = value;
+                              },
                               controller: V_allant,
                               decoration: InputDecoration(
                                   labelText: 'Allant a ',
@@ -599,29 +672,30 @@ class _VehiculeAState extends State<VehiculeA> {
                                           .set({
                                         "Vehicule A": [
                                           {
-                                            "Nom assurance": nom_assurance,
+                                            "Nom assurance": _nom_assurance,
                                             "police d'assurance":
-                                                police_dassurance,
-                                            "agence": agence,
-                                            "valable du": valable_du,
-                                            "valable_au": valable_au,
-                                            "C nom": C_nom,
-                                            "C prenom": C_prenom,
-                                            "C addresse": C_addresse,
-                                            "C num permis": C_numPermis,
-                                            "C_permisDeli": C_permisDeli,
-                                            "A nom": A_nom,
-                                            "A prenom": A_prenom,
-                                            "A addresse": A_addresse,
-                                            "A_tel": A_tel,
-                                            "V marque": V_marque,
-                                            "V imma": V_imma,
-                                            "V sens suivi": V_sens_suivi,
-                                            "V venant": V_venant,
-                                            "V allant": V_allant,
+                                                _police_dassurance,
+                                            "agence": _agence,
+                                            "valable du": _valable_du,
+                                            "valable_au": _valable_au,
+                                            "C nom": _C_nom,
+                                            "C prenom": _C_prenom,
+                                            "C addresse": _C_addresse,
+                                            "C num permis": _C_numPermis,
+                                            "C_permisDeli": _C_permisDeli,
+                                            "A nom": _A_nom,
+                                            "A prenom": _A_prenom,
+                                            "A addresse": _A_addresse,
+                                            "A_tel": _A_tel,
+                                            "V marque": _V_marque,
+                                            "V imma": _V_imma,
+                                            "V sens suivi": _V_sens_suivi,
+                                            "V venant": _V_venant,
+                                            "V allant": _V_allant,
                                             "point du choc initial":
-                                                dropdownValue,
-                                            "image de l'accident": imageUrl
+                                                dropdownValue.toString(),
+                                            "image de l'accident":
+                                                imageUrl.toString()
                                           }
                                         ]
                                       });
