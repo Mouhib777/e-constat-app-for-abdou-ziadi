@@ -23,7 +23,6 @@ class Econstat extends StatefulWidget {
 }
 
 class _EconstatState extends State<Econstat> {
-//    String dropdownValue = list.first;
   final ImagePicker _picker = ImagePicker();
   ImagePicker? imagePicker;
   File? _pickedImage;
@@ -71,6 +70,18 @@ class _EconstatState extends State<Econstat> {
   User? user = FirebaseAuth.instance.currentUser;
 
   String dropdownValue = '1';
+  String dropdownValue1 = 'Selectionner';
+  String dropdownValue2 = 'Selectionner';
+  String dropdownValue3 = 'Selectionner';
+  String dropdownValue4 = 'Selectionner';
+  String dropdownValue5 = 'Selectionner';
+  String dropdownValue6 = 'Selectionner';
+  String dropdownValue7 = 'Selectionner';
+  String dropdownValue8 = 'Selectionner';
+  String dropdownValue9 = 'Selectionner';
+  String dropdownValue10 = 'Selectionner';
+  String dropdownValue11 = 'Selectionner';
+  String dropdownValue12 = 'Selectionner';
 
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -100,7 +111,7 @@ class _EconstatState extends State<Econstat> {
 
   bool isDetailComplete() {
     if (currentStep == 0) {
-      //check sender fields
+      //check vehicule a fields
       if (nom_assurance.text.isEmpty ||
           police_dassurance.text.isEmpty ||
           agence.text.isEmpty ||
@@ -615,6 +626,36 @@ class _EconstatState extends State<Econstat> {
                                         ),
                                 )),
                           ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          "Les Circonstances",
+                          style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w600, fontSize: 16),
+                        ),
+                        DropdownButton<String>(
+                          iconSize: 40,
+                          value: dropdownValue1,
+                          onChanged: (String? newValue1) {
+                            setState(() {
+                              dropdownValue1 = newValue1!;
+                            });
+                          },
+                          items: <String>[
+                            'En Stationnement'
+                                "A l'arret"
+                          ].map<DropdownMenuItem<String>>((String value1) {
+                            return DropdownMenuItem<String>(
+                              value: value1,
+                              child: Text(
+                                value1,
+                                style: GoogleFonts.raleway(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            );
+                          }).toList(),
                         ),
                       ],
                     )),
