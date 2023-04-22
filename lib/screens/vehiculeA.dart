@@ -29,25 +29,25 @@ class _VehiculeAState extends State<VehiculeA> {
   File? _pickedImage;
   String? imageUrl;
   final _formKey = GlobalKey<FormState>();
-  final nom_assurance = TextEditingController();
-  final police_dassurance = TextEditingController();
-  final agence = TextEditingController();
-  final valable_du = TextEditingController();
-  final valable_au = TextEditingController();
-  final C_nom = TextEditingController();
-  final C_prenom = TextEditingController();
-  final C_addresse = TextEditingController();
-  final C_numPermis = TextEditingController();
-  final C_permisDeli = TextEditingController();
-  final A_nom = TextEditingController();
-  final A_prenom = TextEditingController();
-  final A_addresse = TextEditingController();
-  final A_tel = TextEditingController();
-  final V_marque = TextEditingController();
-  final V_imma = TextEditingController();
-  final V_sens_suivi = TextEditingController();
-  final V_venant = TextEditingController();
-  final V_allant = TextEditingController();
+  var nom_assurance = TextEditingController();
+  var police_dassurance = TextEditingController();
+  var agence = TextEditingController();
+  var valable_du = TextEditingController();
+  var valable_au = TextEditingController();
+  var C_nom = TextEditingController();
+  var C_prenom = TextEditingController();
+  var C_addresse = TextEditingController();
+  var C_numPermis = TextEditingController();
+  var C_permisDeli = TextEditingController();
+  var A_nom = TextEditingController();
+  var A_prenom = TextEditingController();
+  var A_addresse = TextEditingController();
+  var A_tel = TextEditingController();
+  var V_marque = TextEditingController();
+  var V_imma = TextEditingController();
+  var V_sens_suivi = TextEditingController();
+  var V_venant = TextEditingController();
+  var V_allant = TextEditingController();
   String dropdownValue = '1';
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -110,6 +110,9 @@ class _VehiculeAState extends State<VehiculeA> {
                                   fontWeight: FontWeight.w600),
                             ),
                             TextFormField(
+                              onChanged: (value) {
+                                nom_assurance = value;
+                              },
                               controller: nom_assurance,
                               decoration: InputDecoration(
                                   labelText: 'Véhicule assuré par',
@@ -583,6 +586,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                     } else {
                                       final ref = FirebaseStorage.instance
                                           .ref()
+                                          .child('les accidents')
                                           .child(user!.uid.toString() + '.jpg');
                                       await ref.putFile(_pickedImage!);
                                       imageUrl = await ref.getDownloadURL();
@@ -616,13 +620,15 @@ class _VehiculeAState extends State<VehiculeA> {
                                             "V venant": V_venant,
                                             "V allant": V_allant,
                                             "point du choc initial":
-                                                dropdownValue
+                                                dropdownValue,
+                                            "image de l'accident": imageUrl
                                           }
                                         ]
                                       });
                                     }
                                   } catch (ex) {
                                     print(ex);
+                                    EasyLoading.showError(ex.toString());
                                   }
                                   FocusScopeNode currentFocus =
                                       FocusScope.of(context);
