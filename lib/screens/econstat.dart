@@ -348,6 +348,7 @@ class _EconstatState extends State<Econstat> {
                               GoogleFonts.raleway(fontWeight: FontWeight.w600),
                         ),
                         TextFormField(
+                          controller: A_nom,
                           decoration: InputDecoration(
                               labelText: 'Nom',
                               labelStyle: GoogleFonts.raleway()),
@@ -359,6 +360,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: A_prenom,
                           decoration: InputDecoration(
                               labelText: 'Prénom',
                               labelStyle: GoogleFonts.raleway()),
@@ -370,6 +372,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: A_addresse,
                           decoration: InputDecoration(
                               labelText: 'Addresse',
                               labelStyle: GoogleFonts.raleway()),
@@ -381,6 +384,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: A_tel,
                           decoration: InputDecoration(
                               labelText: 'Tél,',
                               labelStyle: GoogleFonts.raleway()),
@@ -400,6 +404,7 @@ class _EconstatState extends State<Econstat> {
                               GoogleFonts.raleway(fontWeight: FontWeight.w600),
                         ),
                         TextFormField(
+                          controller: V_marque,
                           decoration: InputDecoration(
                               labelText: 'Marque',
                               labelStyle: GoogleFonts.raleway()),
@@ -411,6 +416,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: V_imma,
                           decoration: InputDecoration(
                               labelText: "N° d'immatriculation",
                               labelStyle: GoogleFonts.raleway()),
@@ -422,6 +428,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: V_sens_suivi,
                           decoration: InputDecoration(
                               labelText: 'Sens suivi',
                               labelStyle: GoogleFonts.raleway()),
@@ -433,6 +440,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: V_venant,
                           decoration: InputDecoration(
                               labelText: 'Venant a',
                               labelStyle: GoogleFonts.raleway()),
@@ -444,6 +452,7 @@ class _EconstatState extends State<Econstat> {
                           },
                         ),
                         TextFormField(
+                          controller: V_allant,
                           decoration: InputDecoration(
                               labelText: 'Allant a ',
                               labelStyle: GoogleFonts.raleway()),
