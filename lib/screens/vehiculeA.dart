@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:animate_do/animate_do.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -20,6 +23,8 @@ class VehiculeA extends StatefulWidget {
 
 class _VehiculeAState extends State<VehiculeA> {
   final ImagePicker _picker = ImagePicker();
+    User? user = FirebaseAuth.instance.currentUser;
+
   ImagePicker? imagePicker;
   File? _pickedImage;
   String? imageUrl;
@@ -568,7 +573,48 @@ class _VehiculeAState extends State<VehiculeA> {
                                 "Continue",
                                 style: GoogleFonts.raleway(),
                               ),
-                              onPressed: () {},
+                              onPressed: () async {
+                                if (_formKey.currentState!.validate()) {
+                                  EasyLoading.showToast('Loading'); 
+                                  try{
+                                    if(_pickedImage==null){
+                                      EasyLoading.showError("Svp prendre une photo aprés l'accident");
+                                    }else{
+                                      final ref = FirebaseStorage.instance.ref()
+                                      .child(user!.uid.toString()+'.jpg');
+                                      await ref.putFile(_pickedImage!) ; 
+                                      imageUrl = await ref.getDownloadURL();
+                                      await FirebaseFirestore.instance
+                                      .collection('utilisateur')
+                                      .doc(user!.uid).set(
+                                        {
+                                          "Vehicule A" : [
+                                            {
+                                              "Nom assurance" :nom_assurance , 
+                                              "police d'assurance" : police_dassurance , 
+                                              "agence" : agence , 
+                                              "valable du" : valable_du , 
+                                              "valable_au" : valable_au,
+                                              "C nom" : C_nom, 
+                                              "C prenom" : C_prenom , 
+                                              "C addresse" : C_addresse , 
+                                              "C num permis" : C_numPermis , 
+                                              "C_permisDeli" : C_permisDeli , 
+                                              "A nom" : A_nom , 
+                                              "A prenom" : A_prenom , 
+                                              "A addresse" : A_addresse , 
+                                              "A_tel" : A_tel , 
+                                               
+                                            }
+                                          ]
+
+                                        }
+                                      );
+                                    }
+                                    }
+                                  }
+                                }
+                              },
                             ),
                             SizedBox(
                               height: 30,
