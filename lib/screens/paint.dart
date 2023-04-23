@@ -81,7 +81,9 @@ class _paintScreenState extends State<paintScreen> {
                 width: 20,
               ),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    String? croquis = await NativeScreenshot.takeScreenshot();
+                  },
                   child: Text(
                     "Envoyer le croquis",
                     style: GoogleFonts.raleway(letterSpacing: 2),
