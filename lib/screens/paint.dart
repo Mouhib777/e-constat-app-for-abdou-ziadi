@@ -12,6 +12,8 @@ class paintScreen extends StatefulWidget {
 class _paintScreenState extends State<paintScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }
