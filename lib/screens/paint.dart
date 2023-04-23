@@ -122,7 +122,7 @@ class _paintScreenState extends State<paintScreen> {
                         final ref = FirebaseStorage.instance
                             .ref()
                             .child('les croquis')
-                            .child(randomName);
+                            .child(randomName + '.jpg');
                         await ref.putFile(croquis_capture!);
                         imageUrl1 = await ref.getDownloadURL();
                         await FirebaseFirestore.instance
