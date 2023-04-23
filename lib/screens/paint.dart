@@ -22,6 +22,10 @@ class _paintScreenState extends State<paintScreen> {
         ),
         centerTitle: true,
       ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+      ),
     );
   }
 }
