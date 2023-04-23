@@ -713,14 +713,6 @@ class _VehiculeBState extends State<VehiculeB> {
                             SizedBox(
                               height: 30,
                             ),
-                            Text(
-                              "Les Circonstances",
-                              style: GoogleFonts.raleway(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
                             ElevatedButton(
                               child: Text(
                                 "Continue",
@@ -740,7 +732,7 @@ class _VehiculeBState extends State<VehiculeB> {
                                           .child(user!.uid.toString() + '.jpg');
                                       await ref.putFile(_pickedImage!);
                                       imageUrl = await ref.getDownloadURL();
-                                      EasyLoading.showInfo(imageUrl!);
+
                                       await FirebaseFirestore.instance
                                           .collection('utilisateur')
                                           .doc(user!.uid)
