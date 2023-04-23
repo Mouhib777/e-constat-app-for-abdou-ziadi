@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:e_constat/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:native_screenshot/native_screenshot.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class paintScreen extends StatefulWidget {
   const paintScreen({super.key});
@@ -13,6 +16,7 @@ class paintScreen extends StatefulWidget {
 }
 
 class _paintScreenState extends State<paintScreen> {
+  File? croquis_capture;
   final _strokes = <Path>[];
   void _startStroke(double x, double y) {
     _strokes.add(Path()..moveTo(x, y));
@@ -22,6 +26,12 @@ class _paintScreenState extends State<paintScreen> {
     setState(() {
       _strokes.last.lineTo(x, y);
     });
+  }
+
+  @override
+  void initState() {
+    Permission.storage.request();
+    super.initState();
   }
 
   @override
@@ -83,6 +93,11 @@ class _paintScreenState extends State<paintScreen> {
               ElevatedButton(
                   onPressed: () async {
                     String? croquis = await NativeScreenshot.takeScreenshot();
+                    if (croquis != null) {
+                      setState(() {
+                        croquis_capture = File(croquis);
+                      });
+                    }
                   },
                   child: Text(
                     "Envoyer le croquis",

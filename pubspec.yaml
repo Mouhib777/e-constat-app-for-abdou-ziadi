@@ -51,6 +51,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   firebase_storage: ^11.1.1
   native_screenshot: ^1.0.0
+  permission_handler: ^9.2.0
 dependency_overrides:
   firebase_core_platform_interface: 4.6.0
 dev_dependencies:
