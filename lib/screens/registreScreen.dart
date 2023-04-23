@@ -115,6 +115,16 @@ class _registreScreenState extends State<registreScreen> {
                           "id": _uid,
                           "password": password,
                         });
+                        await FirebaseFirestore.instance
+                            .collection('utilisateur')
+                            .doc(_uid)
+                            .collection('les accidents')
+                            .doc(_uid)
+                            .set({
+                          "Vehicule A": [
+                            {"registre": "true"}
+                          ]
+                        });
 
                         Navigator.push(
                             context,

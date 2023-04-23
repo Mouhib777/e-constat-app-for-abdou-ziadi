@@ -15,11 +15,12 @@ class loginRegistre extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
+            colorFilter: ColorFilter.mode(primaryColor, BlendMode.multiply),
             image: AssetImage(
               "assets/images/road.jpg",
             ),
             fit: BoxFit.fill,
-            opacity: 210),
+            opacity: 1),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
