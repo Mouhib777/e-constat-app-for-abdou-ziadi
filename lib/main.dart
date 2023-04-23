@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
       title: 'E-constat By A.ziadi',
-      home: paintScreen(),
+      home: splashScreen(),
       theme: myTheme,
       //routes: {"/loginRegistre": (context) => loginRegistre()},
     );

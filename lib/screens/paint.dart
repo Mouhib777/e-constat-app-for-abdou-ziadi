@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -104,15 +105,23 @@ class _paintScreenState extends State<paintScreen> {
                       if (croquis != null) {
                         setState(() async {
                           croquis_capture = File(croquis);
-                          EasyLoading.showSuccess(croquis_capture!.path);
+
                           final ref = FirebaseStorage.instance
                               .ref()
                               .child('les accidents')
                               .child(user!.uid.toString() + '.jpg');
                           await ref.putFile(croquis_capture!);
                           imageUrl1 = await ref.getDownloadURL();
+                          await FirebaseFirestore.instance
+                              .collection("utilisateur")
+                              .doc(user!.uid)
+                              .collection("les accidents")
+                              .doc(user!.uid)
+                              .update({"croquis de l'acccident": imageUrl1});
                           //croquis_capture!.path;
                         });
+                        EasyLoading.showSuccess(
+                            "E-constat est envoyé avec succées");
                       } else {
                         print("erreur");
                         EasyLoading.showError('Erreur');

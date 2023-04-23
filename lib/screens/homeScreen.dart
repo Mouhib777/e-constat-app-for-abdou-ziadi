@@ -76,7 +76,7 @@ class _homeScreenState extends State<homeScreen> {
                       style: GoogleFonts.raleway(
                           letterSpacing: 1,
                           color: thirdColor,
-                          fontSize: 13,
+                          fontSize: 11,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(

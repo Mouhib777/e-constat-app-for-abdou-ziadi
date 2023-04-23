@@ -177,8 +177,6 @@ class _mapScreenState extends State<mapScreen> {
                                       ));
                                   EasyLoading.showSuccess(
                                       "Les données ont été envoyés avec succées");
-                                  EasyLoading.showSuccess(
-                                      "e-constat est envoyé avec succés");
                                 },
                               )
                             ])))))
