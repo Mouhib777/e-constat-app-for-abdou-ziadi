@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/homeScreen.dart';
 import 'package:e_constat/screens/option.dart';
+import 'package:e_constat/screens/signatureA.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +137,7 @@ class _paintScreenState extends State<paintScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => optionScreen(),
+                              builder: (context) => signatureA(),
                             ));
                       } else {
                         print("erreur");
