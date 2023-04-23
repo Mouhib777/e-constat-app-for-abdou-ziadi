@@ -26,13 +26,17 @@ class _paintScreenState extends State<paintScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: CustomPaint(),
+        child: CustomPaint(
+          painter: DrawingPainter(),
+        ),
       ),
     );
   }
 }
 
 class DrawingPainter extends CustomPainter {
+  final List<Path> strokes;
+  DrawingPainter(this.strokes);
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
