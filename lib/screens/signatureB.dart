@@ -58,7 +58,7 @@ class _signatureBState extends State<signatureB> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "croquis de l'accident",
+            "Signature B",
             style: GoogleFonts.raleway(
                 letterSpacing: 3, fontWeight: FontWeight.w500),
           ),
