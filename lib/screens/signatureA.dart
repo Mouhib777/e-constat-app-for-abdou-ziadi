@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/homeScreen.dart';
 import 'package:e_constat/screens/option.dart';
+import 'package:e_constat/screens/signatureB.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class _signatureAState extends State<signatureA> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "croquis de l'accident",
+            "Signature A",
             style: GoogleFonts.raleway(
                 letterSpacing: 3, fontWeight: FontWeight.w500),
           ),
@@ -136,7 +137,7 @@ class _signatureAState extends State<signatureA> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => optionScreen(),
+                              builder: (context) => signatureB(),
                             ));
                       } else {
                         print("erreur");
