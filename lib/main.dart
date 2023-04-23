@@ -1,6 +1,7 @@
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/providers/locationProvider.dart';
 import 'package:e_constat/screens/loginRegistre.dart';
+import 'package:e_constat/screens/paint.dart';
 import 'package:e_constat/screens/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -48,9 +49,9 @@ class MyApp extends StatelessWidget {
       builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
       title: 'E-constat By A.ziadi',
-      home: splashScreen(),
+      home: paintScreen(),
       theme: myTheme,
-      routes: {"/loginRegistre": (context) => loginRegistre()},
+      //routes: {"/loginRegistre": (context) => loginRegistre()},
     );
   }
 }
