@@ -66,7 +66,12 @@ class _paintScreenState extends State<paintScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(PageRouteBuilder(
+                        transitionDuration: Duration.zero,
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            paintScreen()));
+                  },
                   child: Text(
                     "effacer tout",
                     style: GoogleFonts.raleway(letterSpacing: 3),
@@ -77,8 +82,8 @@ class _paintScreenState extends State<paintScreen> {
               ElevatedButton(
                   onPressed: () {},
                   child: Text(
-                    "effacer tout",
-                    style: GoogleFonts.raleway(letterSpacing: 3),
+                    "Envoyer le croquis",
+                    style: GoogleFonts.raleway(letterSpacing: 2),
                   )),
             ],
           ),
