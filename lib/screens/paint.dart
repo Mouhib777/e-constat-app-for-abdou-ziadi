@@ -4,6 +4,7 @@ import 'package:e_constat/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:native_screenshot/native_screenshot.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -97,6 +98,9 @@ class _paintScreenState extends State<paintScreen> {
                       setState(() {
                         croquis_capture = File(croquis);
                       });
+                    } else {
+                      print("erreur");
+                      EasyLoading.showError('Erreur');
                     }
                   },
                   child: Text(
