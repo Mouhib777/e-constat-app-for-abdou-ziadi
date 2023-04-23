@@ -13,6 +13,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:native_screenshot/native_screenshot.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'dart:math';
 
 class paintScreen extends StatefulWidget {
   const paintScreen({super.key});
@@ -22,6 +23,14 @@ class paintScreen extends StatefulWidget {
 }
 
 class _paintScreenState extends State<paintScreen> {
+  final Random _random = Random();
+
+  String generateRandomName(int length) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    return String.fromCharCodes(Iterable.generate(
+        length, (_) => chars.codeUnitAt(_random.nextInt(chars.length))));
+  }
+
   String? imageUrl1;
 
   File? croquis_capture;
@@ -109,10 +118,11 @@ class _paintScreenState extends State<paintScreen> {
                         setState(() {
                           croquis_capture = File(croquis);
                         });
+                        final randomName = generateRandomName(10);
                         final ref = FirebaseStorage.instance
                             .ref()
                             .child('les croquis')
-                            .child();
+                            .child(randomName);
                         await ref.putFile(croquis_capture!);
                         imageUrl1 = await ref.getDownloadURL();
                         await FirebaseFirestore.instance
