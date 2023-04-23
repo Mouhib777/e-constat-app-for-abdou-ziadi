@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
+import 'package:e_constat/screens/homeScreen.dart';
+import 'package:e_constat/screens/option.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -101,27 +103,31 @@ class _paintScreenState extends State<paintScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
+                      EasyLoading.showToast("En cours...");
                       String? croquis = await NativeScreenshot.takeScreenshot();
                       if (croquis != null) {
-                        setState(() async {
+                        setState(() {
                           croquis_capture = File(croquis);
-
-                          final ref = FirebaseStorage.instance
-                              .ref()
-                              .child('les accidents')
-                              .child(user!.uid.toString() + '.jpg');
-                          await ref.putFile(croquis_capture!);
-                          imageUrl1 = await ref.getDownloadURL();
-                          await FirebaseFirestore.instance
-                              .collection("utilisateur")
-                              .doc(user!.uid)
-                              .collection("les accidents")
-                              .doc(user!.uid)
-                              .update({"croquis de l'acccident": imageUrl1});
-                          //croquis_capture!.path;
                         });
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('les croquis')
+                            .child();
+                        await ref.putFile(croquis_capture!);
+                        imageUrl1 = await ref.getDownloadURL();
+                        await FirebaseFirestore.instance
+                            .collection("utilisateur")
+                            .doc(user!.uid)
+                            .collection("les accidents")
+                            .doc(user!.uid)
+                            .update({"croquis de l'acccident": imageUrl1});
                         EasyLoading.showSuccess(
-                            "E-constat est envoyé avec succées");
+                            "E-constat a été crée et envoyé avec succées");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => optionScreen(),
+                            ));
                       } else {
                         print("erreur");
                         EasyLoading.showError('Erreur');
