@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,6 +22,14 @@ class VehiculeA extends StatefulWidget {
 }
 
 class _VehiculeAState extends State<VehiculeA> {
+  final Random _random = Random();
+
+  String generateRandomName(int length) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    return String.fromCharCodes(Iterable.generate(
+        length, (_) => chars.codeUnitAt(_random.nextInt(chars.length))));
+  }
+
   final ImagePicker _picker = ImagePicker();
   User? user = FirebaseAuth.instance.currentUser;
 
@@ -724,10 +733,11 @@ class _VehiculeAState extends State<VehiculeA> {
                                       EasyLoading.showError(
                                           "Svp prendre une photo aprés l'accident");
                                     } else {
+                                      final randomName = generateRandomName(10);
                                       final ref = FirebaseStorage.instance
                                           .ref()
                                           .child('les accidents')
-                                          .child(user!.uid.toString() + '.jpg');
+                                          .child(randomName + '.jpg');
                                       await ref.putFile(_pickedImage!);
                                       imageUrl = await ref.getDownloadURL();
                                       EasyLoading.showInfo(
