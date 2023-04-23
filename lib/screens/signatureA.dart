@@ -162,7 +162,7 @@ class DrawingPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     for (final stroke in strokes) {
       final paint = Paint()
-        ..strokeWidth = 5
+        ..strokeWidth = 3
         ..color = primaryColor
         ..style = PaintingStyle.stroke;
 
