@@ -711,14 +711,6 @@ class _VehiculeAState extends State<VehiculeA> {
                             SizedBox(
                               height: 30,
                             ),
-                            Text(
-                              "Les Circonstances",
-                              style: GoogleFonts.raleway(
-                                  fontWeight: FontWeight.w600, fontSize: 16),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
                             ElevatedButton(
                               child: Text(
                                 "Continue",
