@@ -25,7 +25,18 @@ class _paintScreenState extends State<paintScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        child: CustomPaint(),
       ),
     );
+  }
+}
+
+class DrawingPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {}
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
