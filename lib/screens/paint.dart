@@ -12,6 +12,17 @@ class paintScreen extends StatefulWidget {
 }
 
 class _paintScreenState extends State<paintScreen> {
+  final _strokes = <Path>[];
+  void _startStroke(double x, double y) {
+    _strokes.add(Path()..moveTo(x, y));
+  }
+
+  void _moveStroke(double x, double y) {
+    setState(() {
+      _strokes.last.lineTo(x, y);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +34,55 @@ class _paintScreenState extends State<paintScreen> {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: CustomPaint(
-          painter: DrawingPainter(),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.75,
+              child: GestureDetector(
+                onPanDown: (details) => _startStroke(
+                  details.localPosition.dx,
+                  details.localPosition.dy,
+                ),
+                onPanUpdate: (details) => _moveStroke(
+                    details.localPosition.dx, details.localPosition.dy),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  color: thirdColor,
+                  child: CustomPaint(
+                    painter: DrawingPainter(_strokes),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "effacer tout",
+                    style: GoogleFonts.raleway(letterSpacing: 3),
+                  )),
+              SizedBox(
+                width: 20,
+              ),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "effacer tout",
+                    style: GoogleFonts.raleway(letterSpacing: 3),
+                  )),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -39,15 +93,14 @@ class DrawingPainter extends CustomPainter {
   DrawingPainter(this.strokes);
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..strokeWidth = 10
-      ..color = primaryColor
-      ..style = PaintingStyle.stroke;
+    for (final stroke in strokes) {
+      final paint = Paint()
+        ..strokeWidth = 5
+        ..color = primaryColor
+        ..style = PaintingStyle.stroke;
 
-    final samplePath = Path()
-      ..moveTo(100, 100)
-      ..lineTo(300, 300);
-    canvas.drawPath(samplePath, paint);
+      canvas.drawPath(stroke, paint);
+    }
   }
 
   @override
