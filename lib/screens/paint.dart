@@ -1,3 +1,4 @@
+import 'package:e_constat/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -33,7 +34,17 @@ class _paintScreenState extends State<paintScreen> {
 
 class DrawingPainter extends CustomPainter {
   @override
-  void paint(Canvas canvas, Size size) {}
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..strokeWidth = 10
+      ..color = primaryColor
+      ..style = PaintingStyle.stroke;
+
+    final samplePath = Path()
+      ..moveTo(100, 100)
+      ..lineTo(300, 300);
+    canvas.drawPath(samplePath, paint);
+  }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
