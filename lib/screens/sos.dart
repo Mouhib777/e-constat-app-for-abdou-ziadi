@@ -40,7 +40,7 @@ class _sosState extends State<sos> {
             child: Row(
               children: [
                 SizedBox(
-                    width: 100,
+                    width: 90,
                     height: 120,
                     child: Image.asset("assets/images/gardenational.png")),
                 SizedBox(
@@ -51,7 +51,7 @@ class _sosState extends State<sos> {
                   style: GoogleFonts.raleway(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 4),
+                      letterSpacing: 3),
                 )
               ],
             ),
@@ -66,7 +66,7 @@ class _sosState extends State<sos> {
             child: Row(
               children: [
                 SizedBox(
-                    width: 100,
+                    width: 90,
                     height: 120,
                     child: Image.asset("assets/images/protectioncivile.png")),
                 SizedBox(
@@ -77,7 +77,7 @@ class _sosState extends State<sos> {
                   style: GoogleFonts.raleway(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 4),
+                      letterSpacing: 3),
                 )
               ],
             ),
