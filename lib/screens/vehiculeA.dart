@@ -56,7 +56,7 @@ class _VehiculeAState extends State<VehiculeA> {
   var V_sens_suivi = TextEditingController();
   var V_venant = TextEditingController();
   var V_allant = TextEditingController();
-  var V_observations = TextEditingController();
+  var A_observations = TextEditingController();
   String? _nom_assurance;
   String? _police_dassurance;
   String? _agence;
@@ -738,7 +738,7 @@ class _VehiculeAState extends State<VehiculeA> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: TextFormField(
-                                controller: V_observations,
+                                controller: A_observations,
                                 onChanged: (value) {
                                   _A_observations = value;
                                 },

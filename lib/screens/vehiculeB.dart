@@ -56,6 +56,7 @@ class _VehiculeBState extends State<VehiculeB> {
   var V_sens_suivi1 = TextEditingController();
   var V_venant1 = TextEditingController();
   var V_allant1 = TextEditingController();
+  var VB_observations = TextEditingController();
   String? _nom_assurance1;
   String? _police_dassurance1;
   String? _agence1;
@@ -75,6 +76,7 @@ class _VehiculeBState extends State<VehiculeB> {
   String? _V_sens_suivi1;
   String? _V_venant1;
   String? _V_allant1;
+  String? _VB_observations;
   String dropdownValue = '1';
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -721,6 +723,43 @@ class _VehiculeBState extends State<VehiculeB> {
                             SizedBox(
                               height: 30,
                             ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                              "Les Observations",
+                              style: GoogleFonts.raleway(
+                                  fontWeight: FontWeight.w600, fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Container(
+                              height: 200,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: TextFormField(
+                                controller: VB_observations,
+                                onChanged: (value) {
+                                  _VB_observations = value;
+                                },
+                                maxLines: null,
+                                keyboardType: TextInputType.multiline,
+                                textInputAction: TextInputAction.newline,
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: InputDecoration(
+                                  hintText: 'Observations',
+                                  hintStyle: GoogleFonts.raleway(
+                                    letterSpacing: 14,
+                                  ),
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(16),
+                                ),
+                              ),
+                            ),
                             ElevatedButton(
                               child: Text(
                                 "Continue",
@@ -773,7 +812,8 @@ class _VehiculeBState extends State<VehiculeB> {
                                             "point du choc initial":
                                                 dropdownValue.toString(),
                                             "image de l'accident":
-                                                imageUrl.toString()
+                                                imageUrl.toString(),
+                                            "Observation": _VB_observations
                                           }
                                         ]
                                       });
