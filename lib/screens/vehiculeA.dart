@@ -56,7 +56,7 @@ class _VehiculeAState extends State<VehiculeA> {
   var V_sens_suivi = TextEditingController();
   var V_venant = TextEditingController();
   var V_allant = TextEditingController();
-  var V_observations = TextEditingController() ; 
+  var V_observations = TextEditingController();
   String? _nom_assurance;
   String? _police_dassurance;
   String? _agence;
@@ -76,7 +76,7 @@ class _VehiculeAState extends State<VehiculeA> {
   String? _V_sens_suivi;
   String? _V_venant;
   String? _V_allant;
-  String? _A_observations ; 
+  String? _A_observations;
   String dropdownValue = '1';
   handle_image_camera() async {
     XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
@@ -737,7 +737,11 @@ class _VehiculeAState extends State<VehiculeA> {
                                 color: Colors.grey[200],
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: TextField(
+                              child: TextFormField(
+                                controller: V_observations,
+                                onChanged: (value) {
+                                  _A_observations = value;
+                                },
                                 maxLines: null,
                                 keyboardType: TextInputType.multiline,
                                 textInputAction: TextInputAction.newline,
@@ -808,9 +812,8 @@ class _VehiculeAState extends State<VehiculeA> {
                                             "point du choc initial":
                                                 dropdownValue.toString(),
                                             "image de l'accident":
-                                                imageUrl.toString() ,
-                                            "les observations" :     
-                                                
+                                                imageUrl.toString(),
+                                            "les observations": _A_observations
                                           }
                                         ]
                                       });
