@@ -66,7 +66,7 @@ class _sosState extends State<sos> {
             child: Row(
               children: [
                 SizedBox(
-                    width: 120,
+                    width: 100,
                     height: 120,
                     child: Image.asset("assets/images/protectioncivile.png")),
                 SizedBox(
