@@ -2,11 +2,10 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/mapScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -31,7 +30,6 @@ class _VehiculeBState extends State<VehiculeB> {
   }
 
   final ImagePicker _picker = ImagePicker();
-  User? user = FirebaseAuth.instance.currentUser;
 
   ImagePicker? imagePicker;
   File? _pickedImage;
@@ -766,74 +764,19 @@ class _VehiculeBState extends State<VehiculeB> {
                                 style: GoogleFonts.raleway(),
                               ),
                               onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  EasyLoading.showToast('Loading');
-                                  try {
-                                    if (_pickedImage == null) {
-                                      EasyLoading.showError(
-                                          "Svp prendre une photo aprés l'accident");
-                                    } else {
-                                      final randomName = generateRandomName(10);
-                                      final ref = FirebaseStorage.instance
-                                          .ref()
-                                          .child('les accidents')
-                                          .child(randomName + '.jpg');
-                                      await ref.putFile(_pickedImage!);
-                                      imageUrl = await ref.getDownloadURL();
+                                EasyLoading.showToast(
+                                    'Stocker les données en cours...');
 
-                                      await FirebaseFirestore.instance
-                                          .collection('utilisateur')
-                                          .doc(user!.uid)
-                                          .collection('les accidents')
-                                          .doc(user!.uid)
-                                          .update({
-                                        "Vehicule B": [
-                                          {
-                                            "Nom assurance": _nom_assurance1,
-                                            "police d'assurance":
-                                                _police_dassurance1,
-                                            "agence": _agence1,
-                                            "valable du": _valable_du1,
-                                            "valable_au": _valable_au1,
-                                            "C nom": _C_nom1,
-                                            "C prenom": _C_prenom1,
-                                            "C addresse": _C_addresse1,
-                                            "C num permis": _C_numPermis1,
-                                            "C_permisDeli": _C_permisDeli1,
-                                            "A nom": _A_nom1,
-                                            "A prenom": _A_prenom1,
-                                            "A addresse": _A_addresse1,
-                                            "A_tel": _A_tel1,
-                                            "V marque": _V_marque1,
-                                            "V imma": _V_imma1,
-                                            "V sens suivi": _V_sens_suivi1,
-                                            "V venant": _V_venant1,
-                                            "V allant": _V_allant1,
-                                            "point du choc initial":
-                                                dropdownValue.toString(),
-                                            "image de l'accident":
-                                                imageUrl.toString(),
-                                            "Observation": _VB_observations
-                                          }
-                                        ]
-                                      });
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => mapScreen(),
-                                          ));
-                                      EasyLoading.showSuccess(
-                                          "Les données ont été envoyés avec succées");
-                                    }
-                                  } catch (ex) {
-                                    print(ex);
-                                    EasyLoading.showError(ex.toString());
-                                  }
-                                  FocusScopeNode currentFocus =
-                                      FocusScope.of(context);
-                                  if (!currentFocus.hasPrimaryFocus) {
-                                    currentFocus.unfocus();
-                                  }
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => mapScreen(),
+                                    ));
+
+                                FocusScopeNode currentFocus =
+                                    FocusScope.of(context);
+                                if (!currentFocus.hasPrimaryFocus) {
+                                  currentFocus.unfocus();
                                 }
                               },
                             ),

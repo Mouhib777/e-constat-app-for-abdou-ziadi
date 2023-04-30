@@ -1,11 +1,9 @@
 import 'package:e_constat/constant/constant.dart';
-import 'package:e_constat/screens/loginRegistre.dart';
+
 import 'package:e_constat/screens/option.dart';
-import 'package:e_constat/screens/registreScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -98,25 +96,10 @@ class _homeScreenState extends State<homeScreen> {
                   width: 170,
                   child: ElevatedButton(
                     onPressed: () {
-                      FirebaseAuth.instance
-                          .authStateChanges()
-                          .listen((User? user) {
-                        if (user == null) {
-                          Navigator.of(context).push(
-                            PageRouteBuilder(
-                              transitionDuration: Duration.zero,
-                              pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      loginRegistre(),
-                            ),
-                          );
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => optionScreen()));
-                        }
-                      });
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => optionScreen()));
                     },
                     child: Text(
                       "Commencez",

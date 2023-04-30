@@ -1,6 +1,6 @@
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/option.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -96,58 +96,6 @@ class _loginScreenState extends State<loginScreen> {
                           color: thirdColor,
                           fontWeight: FontWeight.w600)),
                   onPressed: () async {
-                    try {
-                      UserCredential user = await FirebaseAuth.instance
-                          .signInWithEmailAndPassword(
-                              email: email!.trim(), password: password!.trim());
-
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => optionScreen(),
-                          ));
-                    } on FirebaseAuthException catch (ex) {
-                      if (ex.code == 'user-not-found') {
-                        var snackBar = SnackBar(
-                            backgroundColor: secondaryColor,
-                            content: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Aucun utilisateur avec ces données',
-                                  style: GoogleFonts.raleway(),
-                                ),
-                              ],
-                            ));
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      } else if (ex.code == 'wrong-password') {
-                        var snackBar = SnackBar(
-                            backgroundColor: secondaryColor,
-                            content: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'mot de passe incorrecte',
-                                  style: GoogleFonts.raleway(),
-                                ),
-                              ],
-                            ));
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      } else if (ex.code == 'invalid-email') {
-                        var snackBar = SnackBar(
-                            backgroundColor: secondaryColor,
-                            content: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'addresse e-mail incorrecte',
-                                  style: GoogleFonts.raleway(),
-                                ),
-                              ],
-                            ));
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      }
-                    }
                     FocusScopeNode currentFocus = FocusScope.of(context);
                     if (!currentFocus.hasPrimaryFocus) {
                       currentFocus.unfocus();

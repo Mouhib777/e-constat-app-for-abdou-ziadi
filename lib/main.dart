@@ -3,20 +3,15 @@ import 'package:e_constat/providers/locationProvider.dart';
 import 'package:e_constat/screens/loginRegistre.dart';
 import 'package:e_constat/screens/paint.dart';
 import 'package:e_constat/screens/splash.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
-import 'firebase_options.dart';
 
 void main() async {
   runApp(MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => LocationProvider())],
       child: MyApp()));
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
 
 class MyApp extends StatelessWidget {

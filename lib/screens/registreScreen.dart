@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_constat/constant/constant.dart';
 import 'package:e_constat/screens/option.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class registreScreen extends StatefulWidget {
@@ -99,73 +97,10 @@ class _registreScreenState extends State<registreScreen> {
                             color: thirdColor,
                             fontWeight: FontWeight.w600)),
                     onPressed: () async {
-                      try {
-                        UserCredential user = await FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: email!.trim(),
-                                password: password!.trim());
-                        final User? userr = FirebaseAuth.instance.currentUser;
-                        final _uid = userr!.uid;
-
-                        await FirebaseFirestore.instance
-                            .collection('utilisateur')
-                            .doc(_uid)
-                            .set({
-                          "email": email,
-                          "id": _uid,
-                          "password": password,
-                        });
-                        await FirebaseFirestore.instance
-                            .collection('utilisateur')
-                            .doc(_uid)
-                            .collection('les accidents')
-                            .doc(_uid)
-                            .set({
-                          "Vehicule A": [
-                            {"registre": "true"}
-                          ]
-                        });
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => optionScreen()));
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == 'weak-password') {
-                          var snackBar = SnackBar(
-                              backgroundColor: secondaryColor,
-                              content: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'mot de passe faible',
-                                    style: GoogleFonts.raleway(),
-                                  ),
-                                ],
-                              ));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        } else if (e.code == 'email-already-in-use') {
-                          var snackBar = SnackBar(
-                              backgroundColor: secondaryColor,
-                              content: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'cette addresse e-mail est déja utilisé',
-                                    style: GoogleFonts.raleway(),
-                                  ),
-                                ],
-                              ));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      } catch (ex) {
-                        print(ex);
-                      }
-
-                      FocusScopeNode currentFocus = FocusScope.of(context);
-                      if (!currentFocus.hasPrimaryFocus) {
-                        currentFocus.unfocus();
-                      }
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => optionScreen()));
                     }))
           ],
         ),

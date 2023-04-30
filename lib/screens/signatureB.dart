@@ -1,14 +1,12 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:e_constat/constant/constant.dart';
-import 'package:e_constat/screens/homeScreen.dart';
+
 import 'package:e_constat/screens/option.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:native_screenshot/native_screenshot.dart';
@@ -34,7 +32,6 @@ class _signatureBState extends State<signatureB> {
   String? imageUrl1;
 
   File? croquis_capture;
-  User? user = FirebaseAuth.instance.currentUser;
 
   final _strokes = <Path>[];
   void _startStroke(double x, double y) {
@@ -57,10 +54,12 @@ class _signatureBState extends State<signatureB> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Signature B",
-            style: GoogleFonts.raleway(
-                letterSpacing: 3, fontWeight: FontWeight.w500),
+          title: FadeIn(
+            child: Text(
+              "Signature B",
+              style: GoogleFonts.raleway(
+                  letterSpacing: 3, fontWeight: FontWeight.w500),
+            ),
           ),
           centerTitle: true,
         ),
@@ -112,36 +111,25 @@ class _signatureBState extends State<signatureB> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      EasyLoading.showToast("En cours...");
-                      String? croquis = await NativeScreenshot.takeScreenshot();
-                      if (croquis != null) {
-                        setState(() {
-                          croquis_capture = File(croquis);
-                        });
-                        final randomName = generateRandomName(10);
-                        final ref = FirebaseStorage.instance
-                            .ref()
-                            .child('les signature')
-                            .child(randomName + '.jpg');
-                        await ref.putFile(croquis_capture!);
-                        imageUrl1 = await ref.getDownloadURL();
-                        await FirebaseFirestore.instance
-                            .collection("utilisateur")
-                            .doc(user!.uid)
-                            .collection("les accidents")
-                            .doc(user!.uid)
-                            .update({"croquis de l'acccident": imageUrl1});
-                        EasyLoading.showSuccess(
-                            "E-constat a été crée et envoyé avec succées");
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => optionScreen(),
-                            ));
-                      } else {
-                        print("erreur");
-                        EasyLoading.showError('Erreur');
-                      }
+                      // EasyLoading.showToast("En cours...");
+                      // String? croquis = await NativeScreenshot.takeScreenshot();
+                      // if (croquis != null) {
+                      //   setState(() {
+                      //     croquis_capture = File(croquis);
+                      //   });
+                      //   final randomName = generateRandomName(10);
+
+                      EasyLoading.showSuccess(
+                          "E-constat a été crée et envoyé avec succées");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => optionScreen(),
+                          ));
+                      // } else {
+                      //   print("erreur");
+                      //   EasyLoading.showError('Erreur');
+                      // }
                     },
                     child: Text(
                       "Envoyer le croquis",
